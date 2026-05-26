@@ -1895,71 +1895,115 @@
                   overflow: "hidden",
                 }}
               >
-                {POLICY_FULL.map((p, i) => (
-                  <div
-                    key={i}
-                    className="zt-item"
-                    style={{
-                      borderBottom:
-                        i < POLICY_FULL.length - 1
-                          ? "1px solid rgba(255,255,255,0.07)"
-                          : "none",
-                      padding: "0 1.75rem",
-                      background: "var(--white)",
-                      transition: "background .2s",
-                    }}
-                  >
-                    <button
-                      onClick={() => toggle(i)}
+                {POLICY_FULL.map((p, i) => {
+                  const isOpen = openIdx === i;
+                  return (
+                    <div
+                      key={i}
                       style={{
-                        width: "100%",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        padding: "1.25rem 0",
-                        //  zero tolerance policy inner title
-                        color: "var(--forest2)",
-                        fontFamily: "Inter,sans-serif",
-                        fontSize: ".9375rem",
-                        fontWeight: 500,
-                        textAlign: "left",
-                        gap: "1rem",
+                        borderBottom:
+                          i < POLICY_FULL.length - 1
+                            ? "1px solid rgba(184,134,11,0.12)"
+                            : "none",
+                        padding: "0 1.75rem",
+                        background: isOpen ? "var(--cream)" : "var(--white)",
+                        transition: "background .35s ease",
                       }}
                     >
-                      <span>{p.q}</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="var(--gold-lt)"
-                        strokeWidth="2"
+                      <button
+                        onClick={() => toggle(i)}
                         style={{
-                          flexShrink: 0,
-                          transition: "transform .2s",
-                          transform: openIdx === i ? "rotate(180deg)" : "none",
+                          width: "100%",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          padding: "1.35rem 0",
+                          color: isOpen ? "var(--gold)" : "var(--forest2)",
+                          fontFamily: "Inter,sans-serif",
+                          fontSize: ".9375rem",
+                          fontWeight: 500,
+                          textAlign: "left",
+                          gap: "1rem",
+                          transition: "color .3s ease",
                         }}
                       >
-                        <polyline points="6 9 12 15 18 9" />
-                      </svg>
-                    </button>
-                    {openIdx === i && (
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: ".65rem",
+                          }}
+                        >
+                          <span
+                            style={{
+                              width: 6,
+                              height: 6,
+                              borderRadius: "50%",
+                              background: isOpen
+                                ? "var(--gold)"
+                                : "var(--soft)",
+                              flexShrink: 0,
+                              transition: "background .3s ease",
+                            }}
+                          />
+                          {p.q}
+                        </span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--gold-lt)"
+                          strokeWidth="2"
+                          style={{
+                            flexShrink: 0,
+                            transition:
+                              "transform .35s cubic-bezier(.4,0,.2,1)",
+                            transform: isOpen
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
+                          }}
+                        >
+                          <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                      </button>
+
+                      {/* Grid-row trick: animates height without knowing exact px */}
                       <div
                         style={{
-                          paddingBottom: "1.25rem",
-                          fontSize: ".875rem",
-                          color: "var(--forest)",
-                          lineHeight: 1.8,
+                          display: "grid",
+                          gridTemplateRows: isOpen ? "1fr" : "0fr",
+                          transition:
+                            "grid-template-rows .38s cubic-bezier(.4,0,.2,1)",
                         }}
                       >
-                        {p.a}
+                        <div style={{ overflow: "hidden" }}>
+                          <div
+                            style={{
+                              paddingBottom: "1.35rem",
+                              paddingLeft: "1.2rem",
+                              fontSize: ".875rem",
+                              color: "var(--forest)",
+                              lineHeight: 1.85,
+                              borderLeft: "2px solid var(--gold-lt)",
+                              opacity: isOpen ? 1 : 0,
+                              transform: isOpen
+                                ? "translateY(0)"
+                                : "translateY(-6px)",
+                              transition:
+                                "opacity .3s ease .08s, transform .3s ease .08s",
+                            }}
+                          >
+                            {p.a}
+                          </div>
+                        </div>
                       </div>
-                    )}
-                  </div>
-                ))}
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Footer note */}
