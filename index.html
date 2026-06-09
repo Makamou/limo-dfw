@@ -455,28 +455,50 @@
       /* ── HERO ── */
       .hero-wrap {
         position: relative;
-        min-height: 100svh;
+        min-height: 80svh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
         overflow: hidden;
       }
+      @media (max-width: 768px) {
+        .hero-wrap {
+          min-height: 75svh;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero-wrap {
+          min-height: 70svh;
+        }
+      }
+      @media (max-width: 375px) {
+        .hero-wrap {
+          min-height: 65svh;
+        }
+      }
       .hero-bg-img {
         position: absolute;
         inset: 0;
-        /* https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1900&q=85 */
-        background: url("./hero.webp") center/cover no-repeat;
+        background: url("./hero.webp") center / cover no-repeat;
       }
       .hero-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-          180deg,
-          rgba(10, 20, 12, 0.55) 0%,
-          rgba(10, 20, 12, 0.3) 35%,
-          rgba(10, 20, 12, 0.55) 65%,
-          rgba(249, 245, 239, 1) 100%
-        );
+        background:
+          linear-gradient(
+            90deg,
+            rgba(5, 8, 6, 0.72) 0%,
+            rgba(5, 8, 6, 0.45) 38%,
+            rgba(5, 8, 6, 0.1) 60%,
+            transparent 100%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(10, 20, 12, 0.5) 0%,
+            rgba(10, 20, 12, 0.2) 35%,
+            rgba(10, 20, 12, 0.5) 65%,
+            rgba(249, 245, 239, 1) 100%
+          );
       }
       .hero-content {
         position: relative;
@@ -527,7 +549,7 @@
       /* ── FLEET GRID ── */
       .fleet-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        grid-template-columns: 1fr;
         gap: 1.5rem;
       }
 
@@ -1198,6 +1220,188 @@
           height: 190px !important;
         }
       }
+
+      /* ── HERO DESKTOP LEFT-ALIGN ── */
+      @media (min-width: 769px) {
+        .hero-content {
+          text-align: left !important;
+        }
+        .hero-eyebrow-wrap {
+          justify-content: flex-start !important;
+        }
+        .hero-content h1 {
+          text-align: left !important;
+        }
+        .hero-content p {
+          text-align: left !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        .hero-ctas {
+          justify-content: flex-start !important;
+        }
+        .stat-bar {
+          max-width: 580px;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+      }
+
+      /* ── NAV TAGLINE STRIP ── */
+      .nav-tagline-strip {
+        display: none;
+        text-align: center;
+        font-size: 0.575rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 3px 0 5px;
+      }
+      .nav-tagline-at-top {
+        color: rgba(255, 255, 255, 0.45);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .nav-tagline-scrolled {
+        color: var(--soft);
+        border-top: 1px solid var(--border);
+      }
+      @media (min-width: 769px) {
+        .nav-tagline-strip {
+          display: block;
+        }
+      }
+
+      /* ── MOBILE BOOK BTN IN NAV ── */
+      .mobile-book-nav {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .mobile-book-nav {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          padding: 0.44rem 1rem !important;
+          font-size: 0.72rem !important;
+          min-height: auto !important;
+        }
+      }
+
+      /* ── MOBILE HERO CTA SIDE-BY-SIDE ── */
+      @media (min-width: 420px) and (max-width: 768px) {
+        .hero-ctas {
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+        }
+        .hero-ctas a {
+          flex: 1 !important;
+          width: auto !important;
+          text-align: center !important;
+        }
+      }
+
+      /* ── STAT ICONS ── */
+      .stat-icon {
+        width: 22px;
+        height: 22px;
+        margin: 0 auto 0.45rem;
+        display: block;
+        color: var(--gold);
+        opacity: 0.75;
+        flex-shrink: 0;
+      }
+      @media (min-width: 769px) {
+        .stat-icon {
+          display: none;
+        }
+      }
+
+      /* ── PROMO CARD SECTION ── */
+      .promo-card-section {
+        background: var(--white);
+        padding: 2.25rem 0;
+        text-align: center;
+        border-top: 2px solid var(--gold);
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* ── SERVICE ICON ROW (mobile) ── */
+      .service-icon-row {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .service-icon-row {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+        }
+      }
+      .service-icon-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+      }
+      .service-icon-circle {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 1.5px solid var(--border-gold);
+        background: var(--cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold);
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .service-icon-btn:hover .service-icon-circle,
+      .service-icon-btn:active .service-icon-circle {
+        background: var(--gold-pale);
+        border-color: var(--gold-lt);
+      }
+      .service-icon-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 500;
+        text-align: center;
+        max-width: 60px;
+        line-height: 1.3;
+      }
+
+      /* ── Labeled field wrapper (fixes invisible date/time on iOS Safari) ── */
+      .field-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .field-wrap .field-label {
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.55rem 0.9rem 0;
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+      .field-wrap .field {
+        border-radius: 0 0 6px 6px !important;
+        padding-top: 0.3rem !important;
+      }
     </style>
   </head>
   <body>
@@ -1239,7 +1443,8 @@
           name: "Luxury SUV",
           seats: "6 seats",
           sub: "Cadillac Escalade · Lincoln Navigator",
-          img: "https://cadillacsociety.com/wp-content/uploads/2021/04/2021-Cadillac-Escalade-Sport-Platinum-Black-Raven-Exterior-001.jpg",
+          img: "./side2.jpg",
+          img2: "./side.jpg", // swap with interior shot e.g. "./interior.jpg"
         },
       ];
 
@@ -1477,37 +1682,54 @@
                 </a>
               </nav>
 
-              {/* Hamburger */}
-              <button
-                className="mobile-btn"
-                onClick={() => setOpen(!open)}
-                style={{
-                  background: "none",
-                  border: `1.5px solid ${atTop ? "rgba(255,255,255,0.4)" : "var(--border)"}`,
-                  borderRadius: 6,
-                  padding: ".45rem .6rem",
-                  cursor: "pointer",
-                  color: atTop ? "#fff" : "var(--forest)",
-                  display: "none",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+              {/* Mobile: Book a Ride + Hamburger */}
+              <div
+                style={{ display: "flex", alignItems: "center", gap: ".5rem" }}
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
+                <a
+                  href="#book"
+                  className={`btn mobile-book-nav ${atTop ? "btn-outline-gold" : "btn-gold"}`}
                 >
-                  {open ? (
-                    <path d="M6 6l12 12M18 6L6 18" />
-                  ) : (
-                    <path d="M3 6h18M3 12h18M3 18h18" />
-                  )}
-                </svg>
-              </button>
+                  Book a Ride
+                </a>
+                <button
+                  className="mobile-btn"
+                  onClick={() => setOpen(!open)}
+                  style={{
+                    background: "none",
+                    border: `1.5px solid ${atTop ? "rgba(255,255,255,0.4)" : "var(--border)"}`,
+                    borderRadius: 6,
+                    padding: ".45rem .6rem",
+                    cursor: "pointer",
+                    color: atTop ? "#fff" : "var(--forest)",
+                    display: "none",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    {open ? (
+                      <path d="M6 6l12 12M18 6L6 18" />
+                    ) : (
+                      <path d="M3 6h18M3 12h18M3 18h18" />
+                    )}
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop tagline strip */}
+            <div
+              className={`nav-tagline-strip ${atTop ? "nav-tagline-at-top" : "nav-tagline-scrolled"}`}
+            >
+              Premium Chauffeured Transportation &nbsp;·&nbsp; Dallas–Fort Worth
             </div>
 
             {/* Mobile drawer */}
@@ -1564,11 +1786,12 @@
             <div className="hero-overlay"></div>
 
             <div
-              className="hero-content container--narrow"
+              className="hero-content container"
               style={{ padding: "0 2rem 5rem", position: "relative" }}
             >
               {/* Eyebrow */}
               <div
+                className="hero-eyebrow-wrap"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -1577,39 +1800,7 @@
                   gap: 10,
                   marginBottom: "1.25rem",
                 }}
-              >
-                <div
-                  className="hero-eyebrow-lines"
-                  style={{
-                    width: 28,
-                    height: 1,
-                    background: "rgba(212,168,67,0.7)",
-                    flexShrink: 0,
-                  }}
-                ></div>
-                <span
-                  style={{
-                    fontSize: "clamp(.58rem, 1.7vw, .68rem)",
-                    letterSpacing: ".22em",
-                    textTransform: "uppercase",
-                    color: "rgba(212,168,67,0.9)",
-                    fontWeight: 500,
-                    textAlign: "center",
-                  }}
-                >
-                  Premium Chauffeur · Dallas–Fort Worth
-                </span>
-                <div
-                  className="hero-eyebrow-lines"
-                  style={{
-                    width: 28,
-                    height: 1,
-                    background: "rgba(212,168,67,0.7)",
-                    flexShrink: 0,
-                  }}
-                ></div>
-              </div>
-
+              ></div>
               {/* Headline */}
               <h1
                 className="serif"
@@ -1694,12 +1885,63 @@
               {/* Stat bar */}
               <div className="stat-bar">
                 {[
-                  ["15+", "Years of service"],
-                  ["24 / 7", "Dispatch & support"],
-                  ["5 ★", "Average rating"],
-                  ["DFW", "Metro coverage"],
-                ].map(([k, v]) => (
+                  [
+                    "15+",
+                    "Years of service",
+                    <svg
+                      className="stat-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                    >
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>,
+                  ],
+                  [
+                    "24 / 7",
+                    "Dispatch & support",
+                    <svg
+                      className="stat-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>,
+                  ],
+                  [
+                    "5 ★",
+                    "Average rating",
+                    <svg
+                      className="stat-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                    >
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>,
+                  ],
+                  [
+                    "DFW",
+                    "Metro coverage",
+                    <svg
+                      className="stat-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>,
+                  ],
+                ].map(([k, v, icon]) => (
                   <div key={k} className="stat-item">
+                    {icon}
                     <div
                       className="serif"
                       style={{
@@ -1772,6 +2014,54 @@
         );
       }
 
+      /* ── PROMO CARD ── */
+      function PromoCard() {
+        return (
+          <div className="promo-card-section">
+            <div className="container--narrow">
+              <div
+                className="serif"
+                style={{
+                  fontSize: "clamp(1.35rem, 4vw, 1.75rem)",
+                  fontWeight: 600,
+                  color: "var(--forest)",
+                  marginBottom: ".5rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: ".6rem",
+                }}
+              >
+                <span style={{ color: "var(--gold-lt)", fontSize: "1rem" }}>
+                  —
+                </span>
+                10% Off First Ride
+                <span style={{ color: "var(--gold-lt)", fontSize: "1rem" }}>
+                  —
+                </span>
+              </div>
+              <p
+                style={{
+                  fontSize: ".875rem",
+                  color: "var(--muted)",
+                  marginBottom: "1.25rem",
+                  lineHeight: 1.65,
+                }}
+              >
+                New clients receive 10% off their first booking.
+              </p>
+              <a
+                href="#book"
+                className="btn btn-gold"
+                style={{ padding: ".75rem 2.25rem" }}
+              >
+                Book Now
+              </a>
+            </div>
+          </div>
+        );
+      }
+
       /* ── SERVICES ── */
       function Services() {
         return (
@@ -1786,10 +2076,88 @@
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
+                    marginBottom: "1.5rem",
                   }}
                 >
                   Tailored for every occasion.
                 </h2>
+                {/* Mobile-only icon shortcut row */}
+                <div className="service-icon-row">
+                  {[
+                    {
+                      label: "Airport",
+                      href: "#services",
+                      icon: (
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                        >
+                          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      label: "Corporate",
+                      href: "#services",
+                      icon: (
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                        >
+                          <rect x="2" y="7" width="20" height="14" rx="2" />
+                          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      label: "Events",
+                      href: "#services",
+                      icon: (
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                        >
+                          <path d="M8 22h8M12 11v11M3 11l9-9 9 9" />
+                          <path d="M6 7v1a6 6 0 0 0 12 0V7" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      label: "Hourly",
+                      href: "#services",
+                      icon: (
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.75"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                      ),
+                    },
+                  ].map(({ label, href, icon }) => (
+                    <a key={label} href={href} className="service-icon-btn">
+                      <div className="service-icon-circle">{icon}</div>
+                      <span className="service-icon-label">{label}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <div className="service-grid">
@@ -1897,13 +2265,34 @@
                     className="card fleet-card"
                     style={{ overflow: "hidden" }}
                   >
-                    <div style={{ overflow: "hidden" }}>
-                      <img
-                        src={f.img}
-                        alt={f.name}
-                        className="fleet-img"
-                        loading="lazy"
-                      />
+                    {/* Dual image panel */}
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: f.img2 ? "1fr 1fr" : "1fr",
+                        gap: "3px",
+                        background: "#0a0c0a",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <div style={{ overflow: "hidden" }}>
+                        <img
+                          src={f.img}
+                          alt={`${f.name} exterior`}
+                          className="fleet-img"
+                          loading="lazy"
+                        />
+                      </div>
+                      {f.img2 && (
+                        <div style={{ overflow: "hidden" }}>
+                          <img
+                            src={f.img2}
+                            alt={`${f.name} interior`}
+                            className="fleet-img"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
                     </div>
                     <div style={{ padding: "1.25rem 1.5rem 1.5rem" }}>
                       <div
@@ -2578,8 +2967,8 @@
             pickup: form.pickup,
             dropoff: form.dropoff,
             stops: form.stops || "None",
-            date: form.date,
-            time: form.time,
+            date: form.date || "Not specified",
+            time: form.time || "Not specified",
             return_trip: form.returnTrip,
             passengers: form.passengers,
             vehicle: form.vehicle,
@@ -2794,6 +3183,7 @@
                       value={form.date}
                       onChange={set("date")}
                       className="field"
+                      aria-label="Pickup date"
                     />
                     <input
                       required
@@ -2801,6 +3191,7 @@
                       value={form.time}
                       onChange={set("time")}
                       className="field"
+                      aria-label="Pickup time"
                     />
                     <select
                       value={form.returnTrip}
@@ -3203,6 +3594,7 @@
             <Nav />
             <Hero />
             <PromoBanner />
+            <PromoCard />
             <Services />
             <Fleet />
             <Rates />
