@@ -17,8 +17,6 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
     ></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1355,11 +1353,372 @@
   <body>
     <div id="root"></div>
 
-    <script type="text/babel" data-presets="react">
-      const { useState, useEffect } = React;
+    <script>
+      "use strict";
+
+      function _typeof(o) {
+        "@babel/helpers - typeof";
+        return (
+          (_typeof =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (o) {
+                  return typeof o;
+                }
+              : function (o) {
+                  return o &&
+                    "function" == typeof Symbol &&
+                    o.constructor === Symbol &&
+                    o !== Symbol.prototype
+                    ? "symbol"
+                    : typeof o;
+                }),
+          _typeof(o)
+        );
+      }
+      function _regenerator() {
+        /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e,
+          t,
+          r = "function" == typeof Symbol ? Symbol : {},
+          n = r.iterator || "@@iterator",
+          o = r.toStringTag || "@@toStringTag";
+        function i(r, n, o, i) {
+          var c = n && n.prototype instanceof Generator ? n : Generator,
+            u = Object.create(c.prototype);
+          return (
+            _regeneratorDefine2(
+              u,
+              "_invoke",
+              (function (r, n, o) {
+                var i,
+                  c,
+                  u,
+                  f = 0,
+                  p = o || [],
+                  y = !1,
+                  G = {
+                    p: 0,
+                    n: 0,
+                    v: e,
+                    a: d,
+                    f: d.bind(e, 4),
+                    d: function d(t, r) {
+                      return ((i = t), (c = 0), (u = e), (G.n = r), a);
+                    },
+                  };
+                function d(r, n) {
+                  for (
+                    c = r, u = n, t = 0;
+                    !y && f && !o && t < p.length;
+                    t++
+                  ) {
+                    var o,
+                      i = p[t],
+                      d = G.p,
+                      l = i[2];
+                    r > 3
+                      ? (o = l === n) &&
+                        ((u = i[(c = i[4]) ? 5 : ((c = 3), 3)]),
+                        (i[4] = i[5] = e))
+                      : i[0] <= d &&
+                        ((o = r < 2 && d < i[1])
+                          ? ((c = 0), (G.v = n), (G.n = i[1]))
+                          : d < l &&
+                            (o = r < 3 || i[0] > n || n > l) &&
+                            ((i[4] = r), (i[5] = n), (G.n = l), (c = 0)));
+                  }
+                  if (o || r > 1) return a;
+                  throw ((y = !0), n);
+                }
+                return function (o, p, l) {
+                  if (f > 1) throw TypeError("Generator is already running");
+                  for (
+                    y && 1 === p && d(p, l), c = p, u = l;
+                    (t = c < 2 ? e : u) || !y;
+                  ) {
+                    i ||
+                      (c
+                        ? c < 3
+                          ? (c > 1 && (G.n = -1), d(c, u))
+                          : (G.n = u)
+                        : (G.v = u));
+                    try {
+                      if (((f = 2), i)) {
+                        if ((c || (o = "next"), (t = i[o]))) {
+                          if (!(t = t.call(i, u)))
+                            throw TypeError("iterator result is not an object");
+                          if (!t.done) return t;
+                          ((u = t.value), c < 2 && (c = 0));
+                        } else
+                          (1 === c && (t = i["return"]) && t.call(i),
+                            c < 2 &&
+                              ((u = TypeError(
+                                "The iterator does not provide a '" +
+                                  o +
+                                  "' method",
+                              )),
+                              (c = 1)));
+                        i = e;
+                      } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a)
+                        break;
+                    } catch (t) {
+                      ((i = e), (c = 1), (u = t));
+                    } finally {
+                      f = 1;
+                    }
+                  }
+                  return { value: t, done: y };
+                };
+              })(r, o, i),
+              !0,
+            ),
+            u
+          );
+        }
+        var a = {};
+        function Generator() {}
+        function GeneratorFunction() {}
+        function GeneratorFunctionPrototype() {}
+        t = Object.getPrototypeOf;
+        var c = [][n]
+            ? t(t([][n]()))
+            : (_regeneratorDefine2((t = {}), n, function () {
+                return this;
+              }),
+              t),
+          u =
+            (GeneratorFunctionPrototype.prototype =
+            Generator.prototype =
+              Object.create(c));
+        function f(e) {
+          return (
+            Object.setPrototypeOf
+              ? Object.setPrototypeOf(e, GeneratorFunctionPrototype)
+              : ((e.__proto__ = GeneratorFunctionPrototype),
+                _regeneratorDefine2(e, o, "GeneratorFunction")),
+            (e.prototype = Object.create(u)),
+            e
+          );
+        }
+        return (
+          (GeneratorFunction.prototype = GeneratorFunctionPrototype),
+          _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype),
+          _regeneratorDefine2(
+            GeneratorFunctionPrototype,
+            "constructor",
+            GeneratorFunction,
+          ),
+          (GeneratorFunction.displayName = "GeneratorFunction"),
+          _regeneratorDefine2(
+            GeneratorFunctionPrototype,
+            o,
+            "GeneratorFunction",
+          ),
+          _regeneratorDefine2(u),
+          _regeneratorDefine2(u, o, "Generator"),
+          _regeneratorDefine2(u, n, function () {
+            return this;
+          }),
+          _regeneratorDefine2(u, "toString", function () {
+            return "[object Generator]";
+          }),
+          (_regenerator = function _regenerator() {
+            return { w: i, m: f };
+          })()
+        );
+      }
+      function _regeneratorDefine2(e, r, n, t) {
+        var i = Object.defineProperty;
+        try {
+          i({}, "", {});
+        } catch (e) {
+          i = 0;
+        }
+        ((_regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) {
+          function o(r, n) {
+            _regeneratorDefine2(e, r, function (e) {
+              return this._invoke(r, n, e);
+            });
+          }
+          r
+            ? i
+              ? i(e, r, {
+                  value: n,
+                  enumerable: !t,
+                  configurable: !t,
+                  writable: !t,
+                })
+              : (e[r] = n)
+            : (o("next", 0), o("throw", 1), o("return", 2));
+        }),
+          _regeneratorDefine2(e, r, n, t));
+      }
+      function asyncGeneratorStep(n, t, e, r, o, a, c) {
+        try {
+          var i = n[a](c),
+            u = i.value;
+        } catch (n) {
+          return void e(n);
+        }
+        i.done ? t(u) : Promise.resolve(u).then(r, o);
+      }
+      function _asyncToGenerator(n) {
+        return function () {
+          var t = this,
+            e = arguments;
+          return new Promise(function (r, o) {
+            var a = n.apply(t, e);
+            function _next(n) {
+              asyncGeneratorStep(a, r, o, _next, _throw, "next", n);
+            }
+            function _throw(n) {
+              asyncGeneratorStep(a, r, o, _next, _throw, "throw", n);
+            }
+            _next(void 0);
+          });
+        };
+      }
+      function ownKeys(e, r) {
+        var t = Object.keys(e);
+        if (Object.getOwnPropertySymbols) {
+          var o = Object.getOwnPropertySymbols(e);
+          (r &&
+            (o = o.filter(function (r) {
+              return Object.getOwnPropertyDescriptor(e, r).enumerable;
+            })),
+            t.push.apply(t, o));
+        }
+        return t;
+      }
+      function _objectSpread(e) {
+        for (var r = 1; r < arguments.length; r++) {
+          var t = null != arguments[r] ? arguments[r] : {};
+          r % 2
+            ? ownKeys(Object(t), !0).forEach(function (r) {
+                _defineProperty(e, r, t[r]);
+              })
+            : Object.getOwnPropertyDescriptors
+              ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t))
+              : ownKeys(Object(t)).forEach(function (r) {
+                  Object.defineProperty(
+                    e,
+                    r,
+                    Object.getOwnPropertyDescriptor(t, r),
+                  );
+                });
+        }
+        return e;
+      }
+      function _defineProperty(e, r, t) {
+        return (
+          (r = _toPropertyKey(r)) in e
+            ? Object.defineProperty(e, r, {
+                value: t,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0,
+              })
+            : (e[r] = t),
+          e
+        );
+      }
+      function _toPropertyKey(t) {
+        var i = _toPrimitive(t, "string");
+        return "symbol" == _typeof(i) ? i : i + "";
+      }
+      function _toPrimitive(t, r) {
+        if ("object" != _typeof(t) || !t) return t;
+        var e = t[Symbol.toPrimitive];
+        if (void 0 !== e) {
+          var i = e.call(t, r || "default");
+          if ("object" != _typeof(i)) return i;
+          throw new TypeError("@@toPrimitive must return a primitive value.");
+        }
+        return ("string" === r ? String : Number)(t);
+      }
+      function _slicedToArray(r, e) {
+        return (
+          _arrayWithHoles(r) ||
+          _iterableToArrayLimit(r, e) ||
+          _unsupportedIterableToArray(r, e) ||
+          _nonIterableRest()
+        );
+      }
+      function _nonIterableRest() {
+        throw new TypeError(
+          "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.",
+        );
+      }
+      function _unsupportedIterableToArray(r, a) {
+        if (r) {
+          if ("string" == typeof r) return _arrayLikeToArray(r, a);
+          var t = {}.toString.call(r).slice(8, -1);
+          return (
+            "Object" === t && r.constructor && (t = r.constructor.name),
+            "Map" === t || "Set" === t
+              ? Array.from(r)
+              : "Arguments" === t ||
+                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t)
+                ? _arrayLikeToArray(r, a)
+                : void 0
+          );
+        }
+      }
+      function _arrayLikeToArray(r, a) {
+        (null == a || a > r.length) && (a = r.length);
+        for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+        return n;
+      }
+      function _iterableToArrayLimit(r, l) {
+        var t =
+          null == r
+            ? null
+            : ("undefined" != typeof Symbol && r[Symbol.iterator]) ||
+              r["@@iterator"];
+        if (null != t) {
+          var e,
+            n,
+            i,
+            u,
+            a = [],
+            f = !0,
+            o = !1;
+          try {
+            if (((i = (t = t.call(r)).next), 0 === l)) {
+              if (Object(t) !== t) return;
+              f = !1;
+            } else
+              for (
+                ;
+                !(f = (e = i.call(t)).done) &&
+                (a.push(e.value), a.length !== l);
+                f = !0
+              );
+          } catch (r) {
+            ((o = !0), (n = r));
+          } finally {
+            try {
+              if (
+                !f &&
+                null != t["return"] &&
+                ((u = t["return"]()), Object(u) !== u)
+              )
+                return;
+            } finally {
+              if (o) throw n;
+            }
+          }
+          return a;
+        }
+      }
+      function _arrayWithHoles(r) {
+        if (Array.isArray(r)) return r;
+      }
+      var _React = React,
+        useState = _React.useState,
+        useEffect = _React.useEffect;
 
       /* ── DATA ── */
-      const SERVICES = [
+      var SERVICES = [
         {
           title: "Airport & Corporate Transfers",
           desc: "Flight-tracked pickups and drop-offs at DFW, DAL, and regional airports, plus discreet executive transportation for business travel, roadshows, and client meetings.",
@@ -1377,8 +1736,7 @@
           desc: "Compassionate and respectful chauffeur services providing dependable transportation for families during difficult times.",
         },
       ];
-
-      const FLEET = [
+      var FLEET = [
         {
           name: "Luxury SUV",
           seats: "6 seats",
@@ -1387,8 +1745,7 @@
           img2: "./side.jpg",
         },
       ];
-
-      const RATES = [
+      var RATES = [
         {
           vehicle: "Luxury SUV",
           hourly: "$95",
@@ -1396,8 +1753,7 @@
           min: "2 hr min",
         },
       ];
-
-      const FEES = [
+      var FEES = [
         ["Gratuity (Chauffeur)", "20% of base"],
         ["Fuel surcharge", "Included"],
         ["STC / Admin fee", "8% of base"],
@@ -1407,8 +1763,7 @@
         ["Cancellation < 6 hr", "100% of fare"],
         ["Cleaning fee", "$250 minimum"],
       ];
-
-      const POLICY = [
+      var POLICY = [
         {
           q: "No drugs or controlled substances",
           a: "Possession, use, or distribution of any controlled substance is strictly prohibited and results in immediate termination of service with no refund.",
@@ -1434,8 +1789,7 @@
           a: "We never exceed legal seating capacity. Seatbelts must be worn at all times. Safety is non-negotiable.",
         },
       ];
-
-      const POLICY_FULL = [
+      var POLICY_FULL = [
         {
           q: "No Drug or Illegal Substance Use",
           a: "Possession, use, or distribution of any controlled substance in our vehicles is strictly prohibited and will result in immediate termination of service with no refund.",
@@ -1461,8 +1815,7 @@
           a: "We do not exceed the legal seating capacity of any vehicle. Seatbelts must be worn where provided. Safety is non-negotiable.",
         },
       ];
-
-      const AREAS = [
+      var AREAS = [
         "Dallas",
         "Fort Worth",
         "Arlington",
@@ -1483,20 +1836,24 @@
       ];
 
       /* ── LOGO ── */
-      function Logo({ light }) {
-        return (
-          <a
-            href="#top"
-            style={{
+      function Logo(_ref) {
+        var light = _ref.light;
+        return /*#__PURE__*/ React.createElement(
+          "a",
+          {
+            href: "#top",
+            style: {
               display: "flex",
               alignItems: "center",
               gap: 12,
               textDecoration: "none",
-            }}
-          >
-            <div
-              className="nav-logo-circle"
-              style={{
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "nav-logo-circle",
+              style: {
                 width: 40,
                 height: 40,
                 borderRadius: "50%",
@@ -1506,59 +1863,79 @@
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "0 2px 12px rgba(184,134,11,0.35)",
-              }}
-            >
-              <span
-                className="serif"
-                style={{
+              },
+            },
+            /*#__PURE__*/ React.createElement(
+              "span",
+              {
+                className: "serif",
+                style: {
                   color: "#fff",
                   fontWeight: 700,
                   fontSize: "1.15rem",
                   lineHeight: 1,
-                }}
-              >
-                S
-              </span>
-            </div>
-            <div style={{ lineHeight: 1.25 }}>
-              <div
-                className="serif nav-logo-name"
-                style={{
+                },
+              },
+              "S",
+            ),
+          ),
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              style: {
+                lineHeight: 1.25,
+              },
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "serif nav-logo-name",
+                style: {
                   fontWeight: 600,
                   fontSize: "1.05rem",
                   letterSpacing: ".02em",
                   color: light ? "#fff" : "var(--forest)",
-                }}
-              >
-                Shalom Enterprise
-              </div>
-              <div
-                className="nav-logo-sub"
-                style={{
+                },
+              },
+              "Shalom Enterprise",
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "nav-logo-sub",
+                style: {
                   fontSize: ".6rem",
                   letterSpacing: ".28em",
                   textTransform: "uppercase",
                   color: light ? "rgba(255,255,255,0.55)" : "var(--gold)",
-                }}
-              >
-                Limousine · Chauffeur
-              </div>
-            </div>
-          </a>
+                },
+              },
+              "Limousine \xB7 Chauffeur",
+            ),
+          ),
         );
       }
 
       /* ── NAV ── */
       function Nav() {
-        const [open, setOpen] = useState(false);
-        const [scrolled, setScrolled] = useState(false);
-        useEffect(() => {
-          const fn = () => setScrolled(window.scrollY > 60);
+        var _useState = useState(false),
+          _useState2 = _slicedToArray(_useState, 2),
+          open = _useState2[0],
+          setOpen = _useState2[1];
+        var _useState3 = useState(false),
+          _useState4 = _slicedToArray(_useState3, 2),
+          scrolled = _useState4[0],
+          setScrolled = _useState4[1];
+        useEffect(function () {
+          var fn = function fn() {
+            return setScrolled(window.scrollY > 60);
+          };
           window.addEventListener("scroll", fn);
-          return () => window.removeEventListener("scroll", fn);
+          return function () {
+            return window.removeEventListener("scroll", fn);
+          };
         }, []);
-
-        const links = [
+        var links = [
           ["#top", "Home"],
           ["#services", "Services"],
           ["#fleet", "Fleet"],
@@ -1566,12 +1943,12 @@
           ["#service-areas", "Service Areas"],
           ["#zero-tolerance", "Zero Tolerance"],
         ];
-        const atTop = !scrolled;
-
-        return (
-          <header
-            className="nav-bar"
-            style={{
+        var atTop = !scrolled;
+        return /*#__PURE__*/ React.createElement(
+          "header",
+          {
+            className: "nav-bar",
+            style: {
               position: "fixed",
               top: 0,
               left: 0,
@@ -1581,62 +1958,90 @@
               background: atTop ? "transparent" : "rgba(255,255,255,0.96)",
               backdropFilter: atTop ? "none" : "blur(16px)",
               boxShadow: atTop ? "none" : "0 1px 24px rgba(27,47,33,0.10)",
-            }}
-          >
-            <div
-              className="container nav-inner"
-              style={{
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container nav-inner",
+              style: {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 height: 76,
-              }}
-            >
-              <Logo light={atTop} />
-
-              {/* Desktop nav */}
-              <nav
-                className="desktop-nav"
-                style={{
+              },
+            },
+            /*#__PURE__*/ React.createElement(Logo, {
+              light: atTop,
+            }),
+            /*#__PURE__*/ React.createElement(
+              "nav",
+              {
+                className: "desktop-nav",
+                style: {
                   display: "flex",
                   alignItems: "center",
                   gap: "1.75rem",
-                }}
-              >
-                {links.map(([h, l]) => (
-                  <a
-                    key={h}
-                    href={h}
-                    className={atTop ? "nav-link" : "nav-link-dark"}
-                  >
-                    {l}
-                  </a>
-                ))}
-                <a
-                  href="#book"
-                  className={atTop ? "btn btn-outline-gold" : "btn btn-gold"}
-                  style={{ padding: ".6rem 1.5rem", fontSize: ".78rem" }}
-                >
-                  Book a Ride
-                </a>
-              </nav>
-
-              {/* Mobile: Book a Ride + Hamburger */}
-              <div
-                style={{ display: "flex", alignItems: "center", gap: ".5rem" }}
-              >
-                <a
-                  href="#book"
-                  className={`btn mobile-book-nav ${atTop ? "btn-outline-gold" : "btn-gold"}`}
-                >
-                  Book a Ride
-                </a>
-                <button
-                  className="mobile-btn"
-                  onClick={() => setOpen(!open)}
-                  style={{
+                },
+              },
+              links.map(function (_ref2) {
+                var _ref3 = _slicedToArray(_ref2, 2),
+                  h = _ref3[0],
+                  l = _ref3[1];
+                return /*#__PURE__*/ React.createElement(
+                  "a",
+                  {
+                    key: h,
+                    href: h,
+                    className: atTop ? "nav-link" : "nav-link-dark",
+                  },
+                  l,
+                );
+              }),
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "#book",
+                  className: atTop ? "btn btn-outline-gold" : "btn btn-gold",
+                  style: {
+                    padding: ".6rem 1.5rem",
+                    fontSize: ".78rem",
+                  },
+                },
+                "Book a Ride",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  display: "flex",
+                  alignItems: "center",
+                  gap: ".5rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "#book",
+                  className: "btn mobile-book-nav ".concat(
+                    atTop ? "btn-outline-gold" : "btn-gold",
+                  ),
+                },
+                "Book a Ride",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "button",
+                {
+                  className: "mobile-btn",
+                  onClick: function onClick() {
+                    return setOpen(!open);
+                  },
+                  style: {
                     background: "none",
-                    border: `1.5px solid ${atTop ? "rgba(255,255,255,0.4)" : "var(--border)"}`,
+                    border: "1.5px solid ".concat(
+                      atTop ? "rgba(255,255,255,0.4)" : "var(--border)",
+                    ),
                     borderRadius: 6,
                     padding: ".45rem .6rem",
                     cursor: "pointer",
@@ -1644,138 +2049,168 @@
                     display: "none",
                     alignItems: "center",
                     justifyContent: "center",
-                  }}
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    {open ? (
-                      <path d="M6 6l12 12M18 6L6 18" />
-                    ) : (
-                      <path d="M3 6h18M3 12h18M3 18h18" />
-                    )}
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Desktop tagline strip */}
-            <div
-              className={`nav-tagline-strip ${atTop ? "nav-tagline-at-top" : "nav-tagline-scrolled"}`}
-            >
-              Premium Chauffeured Transportation &nbsp;·&nbsp; Dallas–Fort Worth
-            </div>
-
-            {/* Mobile drawer */}
-            {open && (
-              <div
-                style={{
+                  },
+                },
+                /*#__PURE__*/ React.createElement(
+                  "svg",
+                  {
+                    width: "20",
+                    height: "20",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                  },
+                  open
+                    ? /*#__PURE__*/ React.createElement("path", {
+                        d: "M6 6l12 12M18 6L6 18",
+                      })
+                    : /*#__PURE__*/ React.createElement("path", {
+                        d: "M3 6h18M3 12h18M3 18h18",
+                      }),
+                ),
+              ),
+            ),
+          ),
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "nav-tagline-strip ".concat(
+                atTop ? "nav-tagline-at-top" : "nav-tagline-scrolled",
+              ),
+            },
+            "Premium Chauffeured Transportation \xA0\xB7\xA0 Dallas\u2013Fort Worth",
+          ),
+          open &&
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
                   background: "var(--white)",
                   borderTop: "1px solid var(--border)",
                   padding: "1rem 2rem 1.5rem",
                   boxShadow: "0 8px 32px rgba(27,47,33,0.12)",
-                }}
-              >
-                {links.map(([h, l]) => (
-                  <a
-                    key={h}
-                    href={h}
-                    onClick={() => setOpen(false)}
-                    style={{
+                },
+              },
+              links.map(function (_ref4) {
+                var _ref5 = _slicedToArray(_ref4, 2),
+                  h = _ref5[0],
+                  l = _ref5[1];
+                return /*#__PURE__*/ React.createElement(
+                  "a",
+                  {
+                    key: h,
+                    href: h,
+                    onClick: function onClick() {
+                      return setOpen(false);
+                    },
+                    style: {
                       display: "block",
                       padding: ".65rem 0",
                       fontSize: ".9375rem",
                       color: "var(--forest)",
                       textDecoration: "none",
                       borderBottom: "1px solid var(--border)",
-                    }}
-                  >
-                    {l}
-                  </a>
-                ))}
-                <a
-                  href="#book"
-                  onClick={() => setOpen(false)}
-                  className="btn btn-dark"
-                  style={{
+                    },
+                  },
+                  l,
+                );
+              }),
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "#book",
+                  onClick: function onClick() {
+                    return setOpen(false);
+                  },
+                  className: "btn btn-dark",
+                  style: {
                     display: "block",
                     textAlign: "center",
                     marginTop: "1rem",
                     width: "100%",
-                  }}
-                >
-                  Book a Ride
-                </a>
-              </div>
-            )}
-          </header>
+                  },
+                },
+                "Book a Ride",
+              ),
+            ),
         );
       }
 
       /* ── HERO ── */
       function Hero() {
-        return (
-          <div id="top" className="hero-wrap">
-            <div className="hero-bg-img"></div>
-            <div className="hero-overlay"></div>
-
-            <div
-              className="hero-content container"
-              style={{ padding: "0 2rem 5rem", position: "relative" }}
-            >
-              {/* Eyebrow */}
-              <div
-                className="hero-eyebrow-wrap"
-                style={{
+        return /*#__PURE__*/ React.createElement(
+          "div",
+          {
+            id: "top",
+            className: "hero-wrap",
+          },
+          /*#__PURE__*/ React.createElement("div", {
+            className: "hero-bg-img",
+          }),
+          /*#__PURE__*/ React.createElement("div", {
+            className: "hero-overlay",
+          }),
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "hero-content container",
+              style: {
+                padding: "0 2rem 5rem",
+                position: "relative",
+              },
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "hero-eyebrow-wrap",
+                style: {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexWrap: "wrap",
                   gap: 10,
                   marginBottom: "1.25rem",
-                }}
-              >
-                <div
-                  className="hero-eyebrow-lines"
-                  style={{
-                    width: 28,
-                    height: 1,
-                    background: "rgba(212,168,67,0.7)",
-                    flexShrink: 0,
-                  }}
-                ></div>
-                <span
-                  style={{
+                },
+              },
+              /*#__PURE__*/ React.createElement("div", {
+                className: "hero-eyebrow-lines",
+                style: {
+                  width: 28,
+                  height: 1,
+                  background: "rgba(212,168,67,0.7)",
+                  flexShrink: 0,
+                },
+              }),
+              /*#__PURE__*/ React.createElement(
+                "span",
+                {
+                  style: {
                     fontSize: "clamp(.58rem,1.7vw,.68rem)",
                     letterSpacing: ".22em",
                     textTransform: "uppercase",
                     color: "rgba(212,168,67,0.9)",
                     fontWeight: 500,
                     textAlign: "center",
-                  }}
-                >
-                  Premium Chauffeur · Dallas–Fort Worth
-                </span>
-                <div
-                  className="hero-eyebrow-lines"
-                  style={{
-                    width: 28,
-                    height: 1,
-                    background: "rgba(212,168,67,0.7)",
-                    flexShrink: 0,
-                  }}
-                ></div>
-              </div>
-
-              {/* Headline */}
-              <h1
-                className="serif"
-                style={{
+                  },
+                },
+                "Premium Chauffeur \xB7 Dallas\u2013Fort Worth",
+              ),
+              /*#__PURE__*/ React.createElement("div", {
+                className: "hero-eyebrow-lines",
+                style: {
+                  width: 28,
+                  height: 1,
+                  background: "rgba(212,168,67,0.7)",
+                  flexShrink: 0,
+                },
+              }),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "h1",
+              {
+                className: "serif",
+                style: {
                   fontSize: "clamp(1.9rem,8.5vw,6rem)",
                   fontWeight: 700,
                   lineHeight: 1.08,
@@ -1783,53 +2218,65 @@
                   textAlign: "center",
                   marginBottom: "1.25rem",
                   textShadow: "0 2px 24px rgba(0,0,0,0.35)",
-                }}
-              >
-                Experience the Ultimate in
-                <br />
-                <em style={{ fontStyle: "italic", color: "#e8c97a" }}>
-                  Comfort &amp; Luxury.
-                </em>
-              </h1>
-
-              {/* Sub */}
-              <p
-                style={{
+                },
+              },
+              "Experience the Ultimate in",
+              /*#__PURE__*/ React.createElement("br", null),
+              /*#__PURE__*/ React.createElement(
+                "em",
+                {
+                  style: {
+                    fontStyle: "italic",
+                    color: "#e8c97a",
+                  },
+                },
+                "Comfort & Luxury.",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "p",
+              {
+                style: {
                   textAlign: "center",
                   color: "rgba(255,255,255,0.72)",
                   fontSize: "clamp(0.875rem,2.8vw,1.0625rem)",
                   maxWidth: 480,
                   margin: "0 auto 2rem",
                   lineHeight: 1.75,
-                }}
-              >
-                Shalom Enterprise Limo delivers chauffeured limousine, SUV, and
-                sedan service across DFW. Punctual. Discreet. Every detail
-                handled.
-              </p>
-
-              {/* CTAs */}
-              <div
-                className="hero-ctas"
-                style={{
+                },
+              },
+              "Shalom Enterprise Limo delivers chauffeured limousine, SUV, and sedan service across DFW. Punctual. Discreet. Every detail handled.",
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "hero-ctas",
+                style: {
                   display: "flex",
                   gap: "1rem",
                   justifyContent: "center",
                   flexWrap: "wrap",
                   marginBottom: "4rem",
-                }}
-              >
-                <a
-                  href="#book"
-                  className="btn btn-gold"
-                  style={{ padding: ".95rem 2.5rem", fontSize: ".9rem" }}
-                >
-                  Reserve a Ride
-                </a>
-                <a
-                  href="#fleet"
-                  className="btn"
-                  style={{
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "#book",
+                  className: "btn btn-gold",
+                  style: {
+                    padding: ".95rem 2.5rem",
+                    fontSize: ".9rem",
+                  },
+                },
+                "Reserve a Ride",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "#fleet",
+                  className: "btn",
+                  style: {
                     padding: ".9rem 2.5rem",
                     fontSize: ".9rem",
                     fontWeight: 600,
@@ -1838,114 +2285,153 @@
                     borderRadius: 4,
                     textDecoration: "none",
                     transition: "all .22s",
-                  }}
-                  onMouseEnter={(e) => {
+                  },
+                  onMouseEnter: function onMouseEnter(e) {
                     e.currentTarget.style.background = "rgba(255,255,255,0.12)";
                     e.currentTarget.style.borderColor = "rgba(255,255,255,0.7)";
-                  }}
-                  onMouseLeave={(e) => {
+                  },
+                  onMouseLeave: function onMouseLeave(e) {
                     e.currentTarget.style.background = "transparent";
                     e.currentTarget.style.borderColor =
                       "rgba(255,255,255,0.45)";
-                  }}
-                >
-                  View Fleet
-                </a>
-              </div>
-
-              {/* Stat bar */}
-              <div className="stat-bar">
-                {[
-                  [
-                    "15+",
-                    "Years of service",
-                    <svg
-                      className="stat-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>,
-                  ],
-                  [
-                    "24 / 7",
-                    "Dispatch & support",
-                    <svg
-                      className="stat-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>,
-                  ],
-                  [
-                    "5 ★",
-                    "Average rating",
-                    <svg
-                      className="stat-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                    >
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                    </svg>,
-                  ],
-                  [
-                    "DFW",
-                    "Metro coverage",
-                    <svg
-                      className="stat-icon"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                    >
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>,
-                  ],
-                ].map(([k, v, icon]) => (
-                  <div key={k} className="stat-item">
-                    {icon}
-                    <div
-                      className="serif"
-                      style={{
+                  },
+                },
+                "View Fleet",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "stat-bar",
+              },
+              [
+                [
+                  "15+",
+                  "Years of service",
+                  /*#__PURE__*/ React.createElement(
+                    "svg",
+                    {
+                      className: "stat-icon",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "1.75",
+                    },
+                    /*#__PURE__*/ React.createElement("path", {
+                      d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+                    }),
+                  ),
+                ],
+                [
+                  "24 / 7",
+                  "Dispatch & support",
+                  /*#__PURE__*/ React.createElement(
+                    "svg",
+                    {
+                      className: "stat-icon",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "1.75",
+                    },
+                    /*#__PURE__*/ React.createElement("circle", {
+                      cx: "12",
+                      cy: "12",
+                      r: "10",
+                    }),
+                    /*#__PURE__*/ React.createElement("polyline", {
+                      points: "12 6 12 12 16 14",
+                    }),
+                  ),
+                ],
+                [
+                  "5 ★",
+                  "Average rating",
+                  /*#__PURE__*/ React.createElement(
+                    "svg",
+                    {
+                      className: "stat-icon",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "1.75",
+                    },
+                    /*#__PURE__*/ React.createElement("polygon", {
+                      points:
+                        "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2",
+                    }),
+                  ),
+                ],
+                [
+                  "DFW",
+                  "Metro coverage",
+                  /*#__PURE__*/ React.createElement(
+                    "svg",
+                    {
+                      className: "stat-icon",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "1.75",
+                    },
+                    /*#__PURE__*/ React.createElement("path", {
+                      d: "M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z",
+                    }),
+                    /*#__PURE__*/ React.createElement("circle", {
+                      cx: "12",
+                      cy: "10",
+                      r: "3",
+                    }),
+                  ),
+                ],
+              ].map(function (_ref6) {
+                var _ref7 = _slicedToArray(_ref6, 3),
+                  k = _ref7[0],
+                  v = _ref7[1],
+                  icon = _ref7[2];
+                return /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    key: k,
+                    className: "stat-item",
+                  },
+                  icon,
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      className: "serif",
+                      style: {
                         fontSize: "1.75rem",
                         fontWeight: 700,
                         color: "var(--forest)",
                         lineHeight: 1,
-                      }}
-                    >
-                      {k}
-                    </div>
-                    <div
-                      style={{
+                      },
+                    },
+                    k,
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
                         fontSize: ".72rem",
                         color: "var(--muted)",
                         marginTop: ".35rem",
                         letterSpacing: ".06em",
                         textTransform: "uppercase",
-                      }}
-                    >
-                      {v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+                      },
+                    },
+                    v,
+                  ),
+                );
+              }),
+            ),
+          ),
         );
       }
 
       /* ── PROMO TICKER ── */
       function PromoBanner() {
-        const items = [
+        var items = [
           "🎉 LIMITED TIME — 10% OFF YOUR FIRST RIDE",
           "🚘 LUXURY FLEET · PROFESSIONAL CHAUFFEURS",
           "⭐  RATED #1 LIMOUSINE SERVICE IN THE AREA",
@@ -1953,34 +2439,58 @@
           "🚘 LUXURY FLEET · PROFESSIONAL CHAUFFEURS",
           "⭐  RATED #1 LIMOUSINE SERVICE IN THE AREA",
         ];
-        return (
-          <div
-            className="promo-ticker-wrap"
-            aria-label="Promotional offer: 10% off first ride"
-          >
-            <div className="promo-ticker-track">
-              {items.map((txt, i) => (
-                <span key={i} className="promo-ticker-item">
-                  {txt}
-                  <span className="promo-ticker-dot" aria-hidden="true">
-                    {" "}
-                    &nbsp;·&nbsp;{" "}
-                  </span>
-                </span>
-              ))}
-            </div>
-          </div>
+        return /*#__PURE__*/ React.createElement(
+          "div",
+          {
+            className: "promo-ticker-wrap",
+            "aria-label": "Promotional offer: 10% off first ride",
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "promo-ticker-track",
+            },
+            items.map(function (txt, i) {
+              return /*#__PURE__*/ React.createElement(
+                "span",
+                {
+                  key: i,
+                  className: "promo-ticker-item",
+                },
+                txt,
+                /*#__PURE__*/ React.createElement(
+                  "span",
+                  {
+                    className: "promo-ticker-dot",
+                    "aria-hidden": "true",
+                  },
+                  " ",
+                  "\xA0\xB7\xA0",
+                  " ",
+                ),
+              );
+            }),
+          ),
         );
       }
 
       /* ── PROMO CARD ── */
       function PromoCard() {
-        return (
-          <div className="promo-card-section">
-            <div className="container--narrow">
-              <div
-                className="serif"
-                style={{
+        return /*#__PURE__*/ React.createElement(
+          "div",
+          {
+            className: "promo-card-section",
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container--narrow",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "serif",
+                style: {
                   fontSize: "clamp(1.35rem,4vw,1.75rem)",
                   fontWeight: 600,
                   color: "var(--forest)",
@@ -1989,311 +2499,469 @@
                   alignItems: "center",
                   justifyContent: "center",
                   gap: ".6rem",
-                }}
-              >
-                <span style={{ color: "var(--gold-lt)", fontSize: "1rem" }}>
-                  —
-                </span>
-                10% Off First Ride
-                <span style={{ color: "var(--gold-lt)", fontSize: "1rem" }}>
-                  —
-                </span>
-              </div>
-              <p
-                style={{
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "span",
+                {
+                  style: {
+                    color: "var(--gold-lt)",
+                    fontSize: "1rem",
+                  },
+                },
+                "\u2014",
+              ),
+              "10% Off First Ride",
+              /*#__PURE__*/ React.createElement(
+                "span",
+                {
+                  style: {
+                    color: "var(--gold-lt)",
+                    fontSize: "1rem",
+                  },
+                },
+                "\u2014",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "p",
+              {
+                style: {
                   fontSize: ".875rem",
                   color: "var(--muted)",
                   marginBottom: "1.25rem",
                   lineHeight: 1.65,
-                }}
-              >
-                New clients receive 10% off their first booking.
-              </p>
-              <a
-                href="#book"
-                className="btn btn-gold"
-                style={{ padding: ".75rem 2.25rem" }}
-              >
-                Book Now
-              </a>
-            </div>
-          </div>
+                },
+              },
+              "New clients receive 10% off their first booking.",
+            ),
+            /*#__PURE__*/ React.createElement(
+              "a",
+              {
+                href: "#book",
+                className: "btn btn-gold",
+                style: {
+                  padding: ".75rem 2.25rem",
+                },
+              },
+              "Book Now",
+            ),
+          ),
         );
       }
 
       /* ── SERVICES ── */
       function Services() {
-        return (
-          <section id="services" style={{ background: "var(--cream)" }}>
-            <div className="container">
-              <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-                <div className="eyebrow">What we offer</div>
-                <h2
-                  className="serif"
-                  style={{
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "services",
+            style: {
+              background: "var(--cream)",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "3.5rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "eyebrow",
+                },
+                "What we offer",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "clamp(2.25rem,5vw,3.25rem)",
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
                     marginBottom: "1.5rem",
-                  }}
-                >
-                  Tailored for every occasion.
-                </h2>
-                {/* Mobile-only icon shortcut row */}
-                <div className="service-icon-row">
-                  {[
+                  },
+                },
+                "Tailored for every occasion.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "service-icon-row",
+                },
+                [
+                  {
+                    label: "Airport",
+                    href: "#services",
+                    icon: /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "22",
+                        height: "22",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "1.75",
+                      },
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z",
+                      }),
+                    ),
+                  },
+                  {
+                    label: "Corporate",
+                    href: "#services",
+                    icon: /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "22",
+                        height: "22",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "1.75",
+                      },
+                      /*#__PURE__*/ React.createElement("rect", {
+                        x: "2",
+                        y: "7",
+                        width: "20",
+                        height: "14",
+                        rx: "2",
+                      }),
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2",
+                      }),
+                    ),
+                  },
+                  {
+                    label: "Events",
+                    href: "#services",
+                    icon: /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "22",
+                        height: "22",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "1.75",
+                      },
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M8 22h8M12 11v11M3 11l9-9 9 9",
+                      }),
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M6 7v1a6 6 0 0 0 12 0V7",
+                      }),
+                    ),
+                  },
+                  {
+                    label: "Hourly",
+                    href: "#services",
+                    icon: /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "22",
+                        height: "22",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "1.75",
+                      },
+                      /*#__PURE__*/ React.createElement("circle", {
+                        cx: "12",
+                        cy: "12",
+                        r: "10",
+                      }),
+                      /*#__PURE__*/ React.createElement("polyline", {
+                        points: "12 6 12 12 16 14",
+                      }),
+                    ),
+                  },
+                ].map(function (_ref8) {
+                  var label = _ref8.label,
+                    href = _ref8.href,
+                    icon = _ref8.icon;
+                  return /*#__PURE__*/ React.createElement(
+                    "a",
                     {
-                      label: "Airport",
-                      href: "#services",
-                      icon: (
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.75"
-                        >
-                          <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" />
-                        </svg>
-                      ),
+                      key: label,
+                      href: href,
+                      className: "service-icon-btn",
                     },
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        className: "service-icon-circle",
+                      },
+                      icon,
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "span",
+                      {
+                        className: "service-icon-label",
+                      },
+                      label,
+                    ),
+                  );
+                }),
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "service-grid",
+              },
+              SERVICES.map(function (s, i) {
+                return /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className: "service-cell",
+                  },
+                  /*#__PURE__*/ React.createElement("div", {
+                    style: {
+                      width: 32,
+                      height: 2,
+                      background:
+                        "linear-gradient(90deg,var(--gold),var(--gold-lt))",
+                      borderRadius: 2,
+                      marginBottom: ".875rem",
+                    },
+                  }),
+                  /*#__PURE__*/ React.createElement(
+                    "h3",
                     {
-                      label: "Corporate",
-                      href: "#services",
-                      icon: (
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.75"
-                        >
-                          <rect x="2" y="7" width="20" height="14" rx="2" />
-                          <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Events",
-                      href: "#services",
-                      icon: (
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.75"
-                        >
-                          <path d="M8 22h8M12 11v11M3 11l9-9 9 9" />
-                          <path d="M6 7v1a6 6 0 0 0 12 0V7" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      label: "Hourly",
-                      href: "#services",
-                      icon: (
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.75"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                      ),
-                    },
-                  ].map(({ label, href, icon }) => (
-                    <a key={label} href={href} className="service-icon-btn">
-                      <div className="service-icon-circle">{icon}</div>
-                      <span className="service-icon-label">{label}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div className="service-grid">
-                {SERVICES.map((s, i) => (
-                  <div key={i} className="service-cell">
-                    <div
-                      style={{
-                        width: 32,
-                        height: 2,
-                        background:
-                          "linear-gradient(90deg,var(--gold),var(--gold-lt))",
-                        borderRadius: 2,
-                        marginBottom: ".875rem",
-                      }}
-                    ></div>
-                    <h3
-                      className="serif"
-                      style={{
+                      className: "serif",
+                      style: {
                         fontSize: "1.2rem",
                         fontWeight: 600,
                         color: "var(--forest)",
                         marginBottom: ".5rem",
-                      }}
-                    >
-                      {s.title}
-                    </h3>
-                    <p
-                      style={{
+                      },
+                    },
+                    s.title,
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "p",
+                    {
+                      style: {
                         fontSize: ".875rem",
                         color: "var(--muted)",
                         lineHeight: 1.7,
-                      }}
-                    >
-                      {s.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+                      },
+                    },
+                    s.desc,
+                  ),
+                );
+              }),
+            ),
+          ),
         );
       }
 
       /* ── FLEET ── */
       function Fleet() {
-        return (
-          <section id="fleet" style={{ background: "var(--cream2)" }}>
-            <div className="container">
-              <div
-                style={{
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "fleet",
+            style: {
+              background: "var(--cream2)",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
                   display: "flex",
                   alignItems: "flex-end",
                   justifyContent: "space-between",
                   gap: "2rem",
                   marginBottom: "3rem",
                   flexWrap: "wrap",
-                }}
-              >
-                <div>
-                  <div
-                    className="eyebrow"
-                    style={{ justifyContent: "flex-start" }}
-                  >
-                    <span
-                      style={{
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "eyebrow",
+                    style: {
+                      justifyContent: "flex-start",
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "span",
+                    {
+                      style: {
                         fontSize: ".68rem",
                         letterSpacing: ".28em",
                         textTransform: "uppercase",
                         color: "var(--gold)",
                         fontWeight: 500,
-                      }}
-                    >
-                      The fleet
-                    </span>
-                  </div>
-                  <h2
-                    className="serif"
-                    style={{
+                      },
+                    },
+                    "The fleet",
+                  ),
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "h2",
+                  {
+                    className: "serif",
+                    style: {
                       fontSize: "clamp(2.25rem,5vw,3.25rem)",
                       fontWeight: 700,
                       color: "var(--forest)",
                       lineHeight: 1.1,
-                    }}
-                  >
-                    A vehicle for every journey.
-                  </h2>
-                </div>
-                <p
-                  style={{
+                    },
+                  },
+                  "A vehicle for every journey.",
+                ),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     fontSize: ".9rem",
                     color: "var(--muted)",
                     maxWidth: 320,
                     lineHeight: 1.7,
-                  }}
-                >
-                  Late-model, immaculately maintained vehicles — inspected
-                  before every trip.
-                </p>
-              </div>
-
-              <div className="fleet-grid">
-                {FLEET.map((f, i) => (
-                  <div
-                    key={i}
-                    className="card fleet-card"
-                    style={{ overflow: "hidden" }}
-                  >
-                    {/* Dual image panel */}
-                    <div
-                      style={{
+                  },
+                },
+                "Late-model, immaculately maintained vehicles \u2014 inspected before every trip.",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "fleet-grid",
+              },
+              FLEET.map(function (f, i) {
+                return /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className: "card fleet-card",
+                    style: {
+                      overflow: "hidden",
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
                         display: "grid",
                         gridTemplateColumns: f.img2 ? "1fr 1fr" : "1fr",
                         gap: "3px",
                         background: "#0a0c0a",
                         overflow: "hidden",
-                      }}
-                    >
-                      <div style={{ overflow: "hidden" }}>
-                        <img
-                          src={f.img}
-                          alt={`${f.name} exterior`}
-                          className="fleet-img"
-                          loading="lazy"
-                        />
-                      </div>
-                      {f.img2 && (
-                        <div style={{ overflow: "hidden" }}>
-                          <img
-                            src={f.img2}
-                            alt={`${f.name} interior`}
-                            className="fleet-img"
-                            loading="lazy"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <div style={{ padding: "1.25rem 1.5rem 1.5rem" }}>
-                      <div
-                        style={{
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        style: {
+                          overflow: "hidden",
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement("img", {
+                        src: f.img,
+                        alt: "".concat(f.name, " exterior"),
+                        className: "fleet-img",
+                        loading: "lazy",
+                      }),
+                    ),
+                    f.img2 &&
+                      /*#__PURE__*/ React.createElement(
+                        "div",
+                        {
+                          style: {
+                            overflow: "hidden",
+                          },
+                        },
+                        /*#__PURE__*/ React.createElement("img", {
+                          src: f.img2,
+                          alt: "".concat(f.name, " interior"),
+                          className: "fleet-img",
+                          loading: "lazy",
+                        }),
+                      ),
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
+                        padding: "1.25rem 1.5rem 1.5rem",
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        style: {
                           display: "flex",
                           alignItems: "baseline",
                           justifyContent: "space-between",
                           marginBottom: ".3rem",
-                        }}
-                      >
-                        <span
-                          className="serif"
-                          style={{
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement(
+                        "span",
+                        {
+                          className: "serif",
+                          style: {
                             fontSize: "1.15rem",
                             fontWeight: 600,
                             color: "var(--forest)",
-                          }}
-                        >
-                          {f.name}
-                        </span>
-                        <span
-                          style={{
+                          },
+                        },
+                        f.name,
+                      ),
+                      /*#__PURE__*/ React.createElement(
+                        "span",
+                        {
+                          style: {
                             fontSize: ".75rem",
                             color: "var(--gold)",
                             fontWeight: 500,
                             letterSpacing: ".04em",
-                          }}
-                        >
-                          {f.seats}
-                        </span>
-                      </div>
-                      <div
-                        style={{
+                          },
+                        },
+                        f.seats,
+                      ),
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        style: {
                           fontSize: ".8rem",
                           color: "var(--muted)",
                           marginBottom: "1.1rem",
-                        }}
-                      >
-                        {f.sub}
-                      </div>
-                      <a
-                        href="#book"
-                        style={{
+                        },
+                      },
+                      f.sub,
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "a",
+                      {
+                        href: "#book",
+                        style: {
                           fontSize: ".8rem",
                           color: "var(--gold)",
                           textDecoration: "none",
@@ -2302,91 +2970,186 @@
                           fontWeight: 500,
                           letterSpacing: ".04em",
                           transition: "border-color .18s",
-                        }}
-                        onMouseEnter={(e) =>
-                          (e.currentTarget.style.borderColor = "var(--gold)")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.currentTarget.style.borderColor =
-                            "rgba(184,134,11,0.3)")
-                        }
-                      >
-                        Reserve this vehicle →
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+                        },
+                        onMouseEnter: function onMouseEnter(e) {
+                          return (e.currentTarget.style.borderColor =
+                            "var(--gold)");
+                        },
+                        onMouseLeave: function onMouseLeave(e) {
+                          return (e.currentTarget.style.borderColor =
+                            "rgba(184,134,11,0.3)");
+                        },
+                      },
+                      "Reserve this vehicle \u2192",
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
         );
       }
 
       /* ── RATES ── */
       function Rates() {
-        const [showFees, setShowFees] = useState(false);
-        return (
-          <section id="rates" style={{ background: "var(--cream)" }}>
-            <div className="container--mid">
-              <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-                <div className="eyebrow">Pricing</div>
-                <h2
-                  className="serif"
-                  style={{
+        var _useState5 = useState(false),
+          _useState6 = _slicedToArray(_useState5, 2),
+          showFees = _useState6[0],
+          setShowFees = _useState6[1];
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "rates",
+            style: {
+              background: "var(--cream)",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container--mid",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "3rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "eyebrow",
+                },
+                "Pricing",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "clamp(2.25rem,5vw,3.25rem)",
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
-                  }}
-                >
-                  Transparent pricing.
-                </h2>
-                <p
-                  style={{
+                  },
+                },
+                "Transparent pricing.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--muted)",
                     fontSize: ".9375rem",
                     marginTop: ".75rem",
                     maxWidth: 500,
                     margin: ".75rem auto 0",
-                  }}
-                >
-                  Base rates shown. Final quote includes gratuity and applicable
-                  fees.
-                </p>
-              </div>
-
-              <div
-                className="card"
-                style={{ overflow: "hidden", marginBottom: "1.25rem" }}
-              >
-                <div className="rate-table-wrap">
-                  <table className="rate-table">
-                    <thead>
-                      <tr>
-                        <th>Vehicle</th>
-                        <th>Hourly</th>
-                        <th>Airport flat rate</th>
-                        <th>Minimum</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {RATES.map((r, i) => (
-                        <tr key={i}>
-                          <td className="vname">{r.vehicle}</td>
-                          <td style={{ fontWeight: 500 }}>{r.hourly}</td>
-                          <td style={{ fontWeight: 500 }}>{r.airport}</td>
-                          <td style={{ color: "var(--muted)" }}>{r.min}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div style={{ textAlign: "center", marginBottom: "1rem" }}>
-                <button
-                  onClick={() => setShowFees(!showFees)}
-                  style={{
+                  },
+                },
+                "Base rates shown. Final quote includes gratuity and applicable fees.",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "card",
+                style: {
+                  overflow: "hidden",
+                  marginBottom: "1.25rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "rate-table-wrap",
+                },
+                /*#__PURE__*/ React.createElement(
+                  "table",
+                  {
+                    className: "rate-table",
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "thead",
+                    null,
+                    /*#__PURE__*/ React.createElement(
+                      "tr",
+                      null,
+                      /*#__PURE__*/ React.createElement("th", null, "Vehicle"),
+                      /*#__PURE__*/ React.createElement("th", null, "Hourly"),
+                      /*#__PURE__*/ React.createElement(
+                        "th",
+                        null,
+                        "Airport flat rate",
+                      ),
+                      /*#__PURE__*/ React.createElement("th", null, "Minimum"),
+                    ),
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "tbody",
+                    null,
+                    RATES.map(function (r, i) {
+                      return /*#__PURE__*/ React.createElement(
+                        "tr",
+                        {
+                          key: i,
+                        },
+                        /*#__PURE__*/ React.createElement(
+                          "td",
+                          {
+                            className: "vname",
+                          },
+                          r.vehicle,
+                        ),
+                        /*#__PURE__*/ React.createElement(
+                          "td",
+                          {
+                            style: {
+                              fontWeight: 500,
+                            },
+                          },
+                          r.hourly,
+                        ),
+                        /*#__PURE__*/ React.createElement(
+                          "td",
+                          {
+                            style: {
+                              fontWeight: 500,
+                            },
+                          },
+                          r.airport,
+                        ),
+                        /*#__PURE__*/ React.createElement(
+                          "td",
+                          {
+                            style: {
+                              color: "var(--muted)",
+                            },
+                          },
+                          r.min,
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "1rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "button",
+                {
+                  onClick: function onClick() {
+                    return setShowFees(!showFees);
+                  },
+                  style: {
                     background: "none",
                     border: "none",
                     cursor: "pointer",
@@ -2397,224 +3160,299 @@
                     alignItems: "center",
                     gap: ".4rem",
                     fontWeight: 500,
-                  }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    style={{
+                  },
+                },
+                /*#__PURE__*/ React.createElement(
+                  "svg",
+                  {
+                    width: "14",
+                    height: "14",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                    style: {
                       transform: showFees ? "rotate(180deg)" : "none",
                       transition: "transform .2s",
-                    }}
-                  >
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                  {showFees ? "Hide" : "Show"} additional fees &amp;
-                  cancellation policy
-                </button>
-              </div>
-
-              {showFees && (
-                <div className="card" style={{ padding: "1.5rem 2rem" }}>
-                  <div className="grid-fees">
-                    {FEES.map(([l, v], i) => (
-                      <div
-                        key={i}
-                        style={{
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement("polyline", {
+                    points: "6 9 12 15 18 9",
+                  }),
+                ),
+                showFees ? "Hide" : "Show",
+                " additional fees & cancellation policy",
+              ),
+            ),
+            showFees &&
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "card",
+                  style: {
+                    padding: "1.5rem 2rem",
+                  },
+                },
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "grid-fees",
+                  },
+                  FEES.map(function (_ref9, i) {
+                    var _ref0 = _slicedToArray(_ref9, 2),
+                      l = _ref0[0],
+                      v = _ref0[1];
+                    return /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        key: i,
+                        style: {
                           display: "flex",
                           justifyContent: "space-between",
                           padding: "1rem",
                           borderBottom: "1px solid var(--border)",
                           fontSize: ".875rem",
                           gridColumn: "span 1",
-                        }}
-                      >
-                        <span style={{ color: "var(--muted)" }}>{l}</span>
-                        <span
-                          style={{ color: "var(--forest)", fontWeight: 500 }}
-                        >
-                          {v}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <p
-                style={{
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement(
+                        "span",
+                        {
+                          style: {
+                            color: "var(--muted)",
+                          },
+                        },
+                        l,
+                      ),
+                      /*#__PURE__*/ React.createElement(
+                        "span",
+                        {
+                          style: {
+                            color: "var(--forest)",
+                            fontWeight: 500,
+                          },
+                        },
+                        v,
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            /*#__PURE__*/ React.createElement(
+              "p",
+              {
+                style: {
                   fontSize: ".75rem",
                   color: "var(--soft)",
                   marginTop: "1.25rem",
                   textAlign: "center",
-                }}
-              >
-                Holiday surcharges may apply. Custom packages available for
-                weddings, corporate accounts &amp; multi-day trips.
-              </p>
-            </div>
-          </section>
+                },
+              },
+              "Holiday surcharges may apply. Custom packages available for weddings, corporate accounts & multi-day trips.",
+            ),
+          ),
         );
       }
 
       /* ── SERVICE AREAS ── */
       function ServiceAreas() {
-        return (
-          <section
-            id="service-areas"
-            style={{ background: "var(--cream2)", padding: "7rem 0" }}
-          >
-            <div className="container">
-              <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-                <div
-                  style={{
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "service-areas",
+            style: {
+              background: "var(--cream2)",
+              padding: "7rem 0",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "3.5rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  style: {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: ".6rem",
                     marginBottom: "1rem",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: 24,
-                      height: 1,
-                      background: "rgba(212,168,67,0.5)",
-                    }}
-                  ></div>
-                  <span
-                    style={{
+                  },
+                },
+                /*#__PURE__*/ React.createElement("div", {
+                  style: {
+                    width: 24,
+                    height: 1,
+                    background: "rgba(212,168,67,0.5)",
+                  },
+                }),
+                /*#__PURE__*/ React.createElement(
+                  "span",
+                  {
+                    style: {
                       fontSize: ".68rem",
                       letterSpacing: ".28em",
                       textTransform: "uppercase",
                       color: "var(--gold-lt)",
                       fontWeight: 500,
-                    }}
-                  >
-                    Coverage
-                  </span>
-                  <div
-                    style={{
-                      width: 24,
-                      height: 1,
-                      background: "rgba(212,168,67,0.5)",
-                    }}
-                  ></div>
-                </div>
-                <h2
-                  className="serif"
-                  style={{
+                    },
+                  },
+                  "Coverage",
+                ),
+                /*#__PURE__*/ React.createElement("div", {
+                  style: {
+                    width: 24,
+                    height: 1,
+                    background: "rgba(212,168,67,0.5)",
+                  },
+                }),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "clamp(2.25rem,5vw,3.25rem)",
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
-                  }}
-                >
-                  Serving the entire DFW Metroplex.
-                </h2>
-                <p
-                  style={{
+                  },
+                },
+                "Serving the entire DFW Metroplex.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--muted)",
                     fontSize: ".9375rem",
                     maxWidth: 520,
                     margin: "0 auto",
-                  }}
-                >
-                  From downtown Dallas to the suburbs — wherever you need to go,
-                  we'll get you there in style.
-                </p>
-              </div>
-
-              <div className="grid-map">
-                <div
-                  style={{
+                  },
+                },
+                "From downtown Dallas to the suburbs \u2014 wherever you need to go, we'll get you there in style.",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "grid-map",
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  style: {
                     borderRadius: 12,
                     overflow: "hidden",
                     boxShadow: "0 8px 40px rgba(0,0,0,0.35)",
                     border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <iframe
-                    title="Shalom Enterprise Limo Service Area — Dallas-Fort Worth"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429252.5553074854!2d-97.28193825!3d32.821094400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e984b09e4c28b%3A0x1e071f07e96d3e47!2sDallas-Fort%20Worth%20Metroplex%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-                    width="100%"
-                    height="420"
-                    className="map-iframe"
-                    style={{
-                      border: 0,
-                      display: "block",
-                      filter: "grayscale(20%) contrast(1.05)",
-                    }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-
-                <div>
-                  <div
-                    style={{
+                  },
+                },
+                /*#__PURE__*/ React.createElement("iframe", {
+                  title:
+                    "Shalom Enterprise Limo Service Area \u2014 Dallas-Fort Worth",
+                  src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d429252.5553074854!2d-97.28193825!3d32.821094400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e984b09e4c28b%3A0x1e071f07e96d3e47!2sDallas-Fort%20Worth%20Metroplex%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus",
+                  width: "100%",
+                  height: "420",
+                  className: "map-iframe",
+                  style: {
+                    border: 0,
+                    display: "block",
+                    filter: "grayscale(20%) contrast(1.05)",
+                  },
+                  allowFullScreen: "",
+                  loading: "lazy",
+                  referrerPolicy: "no-referrer-when-downgrade",
+                }),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       fontSize: ".65rem",
                       letterSpacing: ".25em",
                       textTransform: "uppercase",
                       color: "var(--gold-lt)",
                       fontWeight: 500,
                       marginBottom: "1.25rem",
-                    }}
-                  >
-                    Cities &amp; Locations We Serve
-                  </div>
-                  <div
-                    style={{
+                    },
+                  },
+                  "Cities & Locations We Serve",
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       display: "flex",
                       flexWrap: "wrap",
                       gap: ".6rem",
                       marginBottom: "2rem",
-                    }}
-                  >
-                    {AREAS.map((a) => (
-                      <span key={a} className="coverage-tag">
-                        {a}
-                      </span>
-                    ))}
-                  </div>
-                  <div
-                    style={{
+                    },
+                  },
+                  AREAS.map(function (a) {
+                    return /*#__PURE__*/ React.createElement(
+                      "span",
+                      {
+                        key: a,
+                        className: "coverage-tag",
+                      },
+                      a,
+                    );
+                  }),
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       padding: "1.5rem",
                       borderRadius: 10,
                       border: "1px solid rgba(212,168,67,0.2)",
                       background: "var(--cream)",
-                    }}
-                  >
-                    <div
-                      style={{
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
                         fontSize: ".8125rem",
                         color: "var(--gold-lt)",
                         fontWeight: 500,
                         marginBottom: ".4rem",
                         letterSpacing: ".04em",
                         textTransform: "uppercase",
-                      }}
-                    >
-                      Don't see your city?
-                    </div>
-                    <p
-                      style={{
+                      },
+                    },
+                    "Don't see your city?",
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "p",
+                    {
+                      style: {
                         fontSize: ".875rem",
                         color: "var(--forest)",
                         lineHeight: 1.75,
                         marginBottom: "1rem",
-                      }}
-                    >
-                      We serve the entire DFW region and beyond. Call or book
-                      online and we'll confirm coverage for your location.
-                    </p>
-                    <a
-                      href="tel:+14699390767"
-                      style={{
+                      },
+                    },
+                    "We serve the entire DFW region and beyond. Call or book online and we'll confirm coverage for your location.",
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "a",
+                    {
+                      href: "tel:+14699390767",
+                      style: {
                         display: "inline-flex",
                         alignItems: "center",
                         gap: ".4rem",
@@ -2622,41 +3460,66 @@
                         color: "var(--gold-lt)",
                         textDecoration: "none",
                         fontWeight: 500,
-                      }}
-                    >
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      >
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
-                      </svg>
-                      Call (469) 939-0767
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "14",
+                        height: "14",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z",
+                      }),
+                    ),
+                    "Call (469) 939-0767",
+                  ),
+                ),
+              ),
+            ),
+          ),
         );
       }
 
       /* ── ZERO TOLERANCE ── */
       function ZeroTolerance() {
-        const [openIdx, setOpenIdx] = useState(null);
-        const toggle = (i) => setOpenIdx(openIdx === i ? null : i);
-        return (
-          <section
-            id="zero-tolerance"
-            style={{ background: "var(--cream)", padding: "7rem 0" }}
-          >
-            <div className="container--mid">
-              <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-                <div
-                  style={{
+        var _useState7 = useState(null),
+          _useState8 = _slicedToArray(_useState7, 2),
+          openIdx = _useState8[0],
+          setOpenIdx = _useState8[1];
+        var toggle = function toggle(i) {
+          return setOpenIdx(openIdx === i ? null : i);
+        };
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "zero-tolerance",
+            style: {
+              background: "var(--cream)",
+              padding: "7rem 0",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container--mid",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "3.5rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  style: {
                     display: "inline-block",
                     border: "1px solid rgba(212,168,67,0.35)",
                     borderRadius: 20,
@@ -2667,273 +3530,372 @@
                     color: "var(--gold-lt)",
                     fontWeight: 500,
                     marginBottom: "1.5rem",
-                  }}
-                >
-                  Zero Tolerance Policy
-                </div>
-                <h2
-                  className="serif"
-                  style={{
+                  },
+                },
+                "Zero Tolerance Policy",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "clamp(2.5rem,6vw,3.75rem)",
                     fontWeight: 700,
                     color: "var(--forest2)",
                     lineHeight: 1.08,
                     marginBottom: "1.25rem",
-                  }}
-                >
-                  Safety, dignity &amp; respect
-                  <br />
-                  <em style={{ fontStyle: "italic", color: "var(--gold-lt)" }}>
-                    — always.
-                  </em>
-                </h2>
-                <p
-                  style={{
+                  },
+                },
+                "Safety, dignity & respect",
+                /*#__PURE__*/ React.createElement("br", null),
+                /*#__PURE__*/ React.createElement(
+                  "em",
+                  {
+                    style: {
+                      fontStyle: "italic",
+                      color: "var(--gold-lt)",
+                    },
+                  },
+                  "\u2014 always.",
+                ),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--forest)",
                     fontSize: ".9375rem",
                     maxWidth: 560,
                     margin: "0 auto",
                     lineHeight: 1.75,
-                  }}
-                >
-                  Shalom Enterprise Limo maintains a strict zero-tolerance
-                  policy to ensure the safety of every passenger, chauffeur, and
-                  member of the public. By booking with us, you agree to the
-                  following:
-                </p>
-              </div>
-
-              <div
-                style={{
+                  },
+                },
+                "Shalom Enterprise Limo maintains a strict zero-tolerance policy to ensure the safety of every passenger, chauffeur, and member of the public. By booking with us, you agree to the following:",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
                   border: "1px solid rgba(255,255,255,0.08)",
                   borderRadius: 12,
                   overflow: "hidden",
-                }}
-              >
-                {POLICY_FULL.map((p, i) => {
-                  const isOpen = openIdx === i;
-                  return (
-                    <div
-                      key={i}
-                      className="zt-item-wrap"
-                      style={{
-                        borderBottom:
-                          i < POLICY_FULL.length - 1
-                            ? "1px solid rgba(184,134,11,0.12)"
-                            : "none",
-                        padding: "0 1.75rem",
-                        background: isOpen ? "var(--cream)" : "var(--white)",
-                        transition: "background .35s ease",
-                      }}
-                    >
-                      <button
-                        onClick={() => toggle(i)}
-                        style={{
-                          width: "100%",
-                          background: "none",
-                          border: "none",
-                          cursor: "pointer",
+                },
+              },
+              POLICY_FULL.map(function (p, i) {
+                var isOpen = openIdx === i;
+                return /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    key: i,
+                    className: "zt-item-wrap",
+                    style: {
+                      borderBottom:
+                        i < POLICY_FULL.length - 1
+                          ? "1px solid rgba(184,134,11,0.12)"
+                          : "none",
+                      padding: "0 1.75rem",
+                      background: isOpen ? "var(--cream)" : "var(--white)",
+                      transition: "background .35s ease",
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "button",
+                    {
+                      onClick: function onClick() {
+                        return toggle(i);
+                      },
+                      style: {
+                        width: "100%",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "1.35rem 0",
+                        color: isOpen ? "var(--gold)" : "var(--forest2)",
+                        fontFamily: "Inter,sans-serif",
+                        fontSize: ".9375rem",
+                        fontWeight: 500,
+                        textAlign: "left",
+                        gap: "1rem",
+                        transition: "color .3s ease",
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "span",
+                      {
+                        style: {
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "space-between",
-                          padding: "1.35rem 0",
-                          color: isOpen ? "var(--gold)" : "var(--forest2)",
-                          fontFamily: "Inter,sans-serif",
-                          fontSize: ".9375rem",
-                          fontWeight: 500,
-                          textAlign: "left",
-                          gap: "1rem",
-                          transition: "color .3s ease",
-                        }}
-                      >
-                        <span
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: ".65rem",
-                          }}
-                        >
-                          <span
-                            style={{
-                              width: 6,
-                              height: 6,
-                              borderRadius: "50%",
-                              background: isOpen
-                                ? "var(--gold)"
-                                : "var(--soft)",
-                              flexShrink: 0,
-                              transition: "background .3s ease",
-                            }}
-                          />
-                          {p.q}
-                        </span>
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="var(--gold-lt)"
-                          strokeWidth="2"
-                          style={{
-                            flexShrink: 0,
-                            transition:
-                              "transform .35s cubic-bezier(.4,0,.2,1)",
+                          gap: ".65rem",
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement("span", {
+                        style: {
+                          width: 6,
+                          height: 6,
+                          borderRadius: "50%",
+                          background: isOpen ? "var(--gold)" : "var(--soft)",
+                          flexShrink: 0,
+                          transition: "background .3s ease",
+                        },
+                      }),
+                      p.q,
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "var(--gold-lt)",
+                        strokeWidth: "2",
+                        style: {
+                          flexShrink: 0,
+                          transition: "transform .35s cubic-bezier(.4,0,.2,1)",
+                          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement("polyline", {
+                        points: "6 9 12 15 18 9",
+                      }),
+                    ),
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
+                        display: "grid",
+                        gridTemplateRows: isOpen ? "1fr" : "0fr",
+                        transition:
+                          "grid-template-rows .38s cubic-bezier(.4,0,.2,1)",
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      {
+                        style: {
+                          overflow: "hidden",
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement(
+                        "div",
+                        {
+                          style: {
+                            paddingBottom: "1.35rem",
+                            paddingLeft: "1.2rem",
+                            fontSize: ".875rem",
+                            color: "var(--forest)",
+                            lineHeight: 1.85,
+                            borderLeft: "2px solid var(--gold-lt)",
+                            opacity: isOpen ? 1 : 0,
                             transform: isOpen
-                              ? "rotate(180deg)"
-                              : "rotate(0deg)",
-                          }}
-                        >
-                          <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                      </button>
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateRows: isOpen ? "1fr" : "0fr",
-                          transition:
-                            "grid-template-rows .38s cubic-bezier(.4,0,.2,1)",
-                        }}
-                      >
-                        <div style={{ overflow: "hidden" }}>
-                          <div
-                            style={{
-                              paddingBottom: "1.35rem",
-                              paddingLeft: "1.2rem",
-                              fontSize: ".875rem",
-                              color: "var(--forest)",
-                              lineHeight: 1.85,
-                              borderLeft: "2px solid var(--gold-lt)",
-                              opacity: isOpen ? 1 : 0,
-                              transform: isOpen
-                                ? "translateY(0)"
-                                : "translateY(-6px)",
-                              transition:
-                                "opacity .3s ease .08s, transform .3s ease .08s",
-                            }}
-                          >
-                            {p.a}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <p
-                style={{
+                              ? "translateY(0)"
+                              : "translateY(-6px)",
+                            transition:
+                              "opacity .3s ease .08s, transform .3s ease .08s",
+                          },
+                        },
+                        p.a,
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "p",
+              {
+                style: {
                   textAlign: "center",
                   fontSize: ".8rem",
                   color: "var(--forest)",
                   marginTop: "2rem",
                   lineHeight: 1.75,
-                }}
-              >
-                Violations of any policy may result in immediate termination of
-                service without refund and possible legal action.
-                <br />
-                To report a concern, call{" "}
-                <a
-                  href="tel:+14694000777"
-                  style={{ color: "var(--gold)", textDecoration: "none" }}
-                >
-                  469-400-0777
-                </a>{" "}
-                or the City of Dallas at{" "}
-                <a
-                  href="tel:+12146703161"
-                  style={{ color: "var(--gold)", textDecoration: "none" }}
-                >
-                  214-670-3161
-                </a>
-                .
-              </p>
-            </div>
-          </section>
+                },
+              },
+              "Violations of any policy may result in immediate termination of service without refund and possible legal action.",
+              /*#__PURE__*/ React.createElement("br", null),
+              "To report a concern, call",
+              " ",
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "tel:+14694000777",
+                  style: {
+                    color: "var(--gold)",
+                    textDecoration: "none",
+                  },
+                },
+                "469-400-0777",
+              ),
+              " ",
+              "or the City of Dallas at",
+              " ",
+              /*#__PURE__*/ React.createElement(
+                "a",
+                {
+                  href: "tel:+12146703161",
+                  style: {
+                    color: "var(--gold)",
+                    textDecoration: "none",
+                  },
+                },
+                "214-670-3161",
+              ),
+              ".",
+            ),
+          ),
         );
       }
 
       /* ── BOOK ── */
       function Book() {
-        const [form, setForm] = useState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          pickup: "",
-          dropoff: "",
-          stops: "",
-          date: "",
-          time: "",
-          returnTrip: "No return trip",
-          passengers: "2",
-          vehicle: "Luxury SUV",
-          occasion: "Airport Transfer",
-          notes: "",
-          agree: false,
-        });
-        const [sent, setSent] = useState(false);
-        const [loading, setLoading] = useState(false);
-        const [errMsg, setErrMsg] = useState("");
-
-        const set = (k) => (e) =>
-          setForm({
-            ...form,
-            [k]:
-              e.target.type === "checkbox" ? e.target.checked : e.target.value,
-          });
-
-        const submit = async (e) => {
-          e.preventDefault();
-          if (!form.agree) {
-            setErrMsg(
-              "Please read and acknowledge the Zero Tolerance Policy before submitting.",
+        var _useState9 = useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            pickup: "",
+            dropoff: "",
+            stops: "",
+            date: "",
+            time: "",
+            returnTrip: "No return trip",
+            passengers: "2",
+            vehicle: "Luxury SUV",
+            occasion: "Airport Transfer",
+            notes: "",
+            agree: false,
+          }),
+          _useState0 = _slicedToArray(_useState9, 2),
+          form = _useState0[0],
+          setForm = _useState0[1];
+        var _useState1 = useState(false),
+          _useState10 = _slicedToArray(_useState1, 2),
+          sent = _useState10[0],
+          setSent = _useState10[1];
+        var _useState11 = useState(false),
+          _useState12 = _slicedToArray(_useState11, 2),
+          loading = _useState12[0],
+          setLoading = _useState12[1];
+        var _useState13 = useState(""),
+          _useState14 = _slicedToArray(_useState13, 2),
+          errMsg = _useState14[0],
+          setErrMsg = _useState14[1];
+        var set = function set(k) {
+          return function (e) {
+            return setForm(
+              _objectSpread(
+                _objectSpread({}, form),
+                {},
+                _defineProperty(
+                  {},
+                  k,
+                  e.target.type === "checkbox"
+                    ? e.target.checked
+                    : e.target.value,
+                ),
+              ),
             );
-            return;
-          }
-          setErrMsg("");
-          setLoading(true);
-          const templateParams = {
-            from_name: `${form.firstName} ${form.lastName}`,
-            from_email: form.email,
-            phone: form.phone,
-            pickup: form.pickup,
-            dropoff: form.dropoff,
-            stops: form.stops || "None",
-            date: form.date || "Not specified",
-            time: form.time || "Not specified",
-            return_trip: form.returnTrip,
-            passengers: form.passengers,
-            vehicle: form.vehicle,
-            occasion: form.occasion,
-            notes: form.notes || "None",
           };
-          try {
-            await emailjs.send(
-              window.EMAILJS_SERVICE_ID,
-              window.EMAILJS_TEMPLATE_ID,
-              templateParams,
-            );
-            setSent(true);
-          } catch (err) {
-            console.error("EmailJS error:", err);
-            setErrMsg(
-              "We couldn't send your request right now. Please call us at (469) 400-0777 or email transportshalom5@gmail.com directly.",
-            );
-          } finally {
-            setLoading(false);
-          }
         };
-
+        var submit = /*#__PURE__*/ (function () {
+          var _ref1 = _asyncToGenerator(
+            /*#__PURE__*/ _regenerator().m(function _callee(e) {
+              var templateParams, _t;
+              return _regenerator().w(
+                function (_context) {
+                  while (1)
+                    switch ((_context.p = _context.n)) {
+                      case 0:
+                        e.preventDefault();
+                        if (form.agree) {
+                          _context.n = 1;
+                          break;
+                        }
+                        setErrMsg(
+                          "Please read and acknowledge the Zero Tolerance Policy before submitting.",
+                        );
+                        return _context.a(2);
+                      case 1:
+                        setErrMsg("");
+                        setLoading(true);
+                        templateParams = {
+                          from_name: ""
+                            .concat(form.firstName, " ")
+                            .concat(form.lastName),
+                          from_email: form.email,
+                          phone: form.phone,
+                          pickup: form.pickup,
+                          dropoff: form.dropoff,
+                          stops: form.stops || "None",
+                          date: form.date || "Not specified",
+                          time: form.time || "Not specified",
+                          return_trip: form.returnTrip,
+                          passengers: form.passengers,
+                          vehicle: form.vehicle,
+                          occasion: form.occasion,
+                          notes: form.notes || "None",
+                        };
+                        _context.p = 2;
+                        _context.n = 3;
+                        return emailjs.send(
+                          window.EMAILJS_SERVICE_ID,
+                          window.EMAILJS_TEMPLATE_ID,
+                          templateParams,
+                        );
+                      case 3:
+                        setSent(true);
+                        _context.n = 5;
+                        break;
+                      case 4:
+                        _context.p = 4;
+                        _t = _context.v;
+                        console.error("EmailJS error:", _t);
+                        setErrMsg(
+                          "We couldn't send your request right now. Please call us at (469) 400-0777 or email transportshalom5@gmail.com directly.",
+                        );
+                      case 5:
+                        _context.p = 5;
+                        setLoading(false);
+                        return _context.f(5);
+                      case 6:
+                        return _context.a(2);
+                    }
+                },
+                _callee,
+                null,
+                [[2, 4, 5, 6]],
+              );
+            }),
+          );
+          return function submit(_x) {
+            return _ref1.apply(this, arguments);
+          };
+        })();
         if (sent)
-          return (
-            <section
-              id="book"
-              style={{ background: "var(--cream2)", textAlign: "center" }}
-            >
-              <div className="container--narrow">
-                <div
-                  style={{
+          return /*#__PURE__*/ React.createElement(
+            "section",
+            {
+              id: "book",
+              style: {
+                background: "var(--cream2)",
+                textAlign: "center",
+              },
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "container--narrow",
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  style: {
                     width: 64,
                     height: 64,
                     borderRadius: "50%",
@@ -2942,306 +3904,480 @@
                     alignItems: "center",
                     justifyContent: "center",
                     margin: "0 auto 1.5rem",
-                  }}
-                >
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="var(--gold)"
-                    strokeWidth="2"
-                  >
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                </div>
-                <h2
-                  className="serif"
-                  style={{
+                  },
+                },
+                /*#__PURE__*/ React.createElement(
+                  "svg",
+                  {
+                    width: "28",
+                    height: "28",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "var(--gold)",
+                    strokeWidth: "2",
+                  },
+                  /*#__PURE__*/ React.createElement("polyline", {
+                    points: "20 6 9 17 4 12",
+                  }),
+                ),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "2.5rem",
                     fontWeight: 700,
                     color: "var(--forest)",
                     marginBottom: ".75rem",
-                  }}
-                >
-                  Thank you.
-                </h2>
-                <p
-                  style={{
+                  },
+                },
+                "Thank you.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--muted)",
                     fontSize: "1rem",
                     marginBottom: ".5rem",
-                  }}
-                >
-                  Your request was sent. A dispatcher will confirm within 30
-                  minutes — 24/7.
-                </p>
-                <p
-                  style={{
+                  },
+                },
+                "Your request was sent. A dispatcher will confirm within 30 minutes \u2014 24/7.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--muted)",
                     fontSize: ".875rem",
                     marginBottom: "2rem",
-                  }}
-                >
-                  Need someone now?{" "}
-                  <a
-                    href="tel:+14699390767"
-                    style={{
+                  },
+                },
+                "Need someone now?",
+                " ",
+                /*#__PURE__*/ React.createElement(
+                  "a",
+                  {
+                    href: "tel:+14699390767",
+                    style: {
                       color: "var(--gold)",
                       textDecoration: "none",
                       fontWeight: 500,
-                    }}
-                  >
-                    +1 (469) 939-0767
-                  </a>
-                </p>
-                <button
-                  onClick={() => setSent(false)}
-                  className="btn btn-outline"
-                  style={{ fontSize: ".8125rem" }}
-                >
-                  Submit another request
-                </button>
-              </div>
-            </section>
+                    },
+                  },
+                  "+1 (469) 939-0767",
+                ),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "button",
+                {
+                  onClick: function onClick() {
+                    return setSent(false);
+                  },
+                  className: "btn btn-outline",
+                  style: {
+                    fontSize: ".8125rem",
+                  },
+                },
+                "Submit another request",
+              ),
+            ),
           );
-
-        return (
-          <section id="book" style={{ background: "var(--cream2)" }}>
-            <div className="container--mid">
-              <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-                <div className="eyebrow">Book a ride</div>
-                <h2
-                  className="serif"
-                  style={{
+        return /*#__PURE__*/ React.createElement(
+          "section",
+          {
+            id: "book",
+            style: {
+              background: "var(--cream2)",
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container--mid",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
+                  textAlign: "center",
+                  marginBottom: "3rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "eyebrow",
+                },
+                "Book a ride",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "h2",
+                {
+                  className: "serif",
+                  style: {
                     fontSize: "clamp(2.25rem,5vw,3.25rem)",
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
-                  }}
-                >
-                  Reserve your chauffeur.
-                </h2>
-                <p
-                  style={{
+                  },
+                },
+                "Reserve your chauffeur.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "p",
+                {
+                  style: {
                     color: "var(--muted)",
                     fontSize: ".9375rem",
                     marginTop: ".75rem",
-                  }}
-                >
-                  For same-day rides, call dispatch at&nbsp;
-                  <a
-                    href="tel:+14699390767"
-                    style={{
+                  },
+                },
+                "For same-day rides, call dispatch at\xA0",
+                /*#__PURE__*/ React.createElement(
+                  "a",
+                  {
+                    href: "tel:+14699390767",
+                    style: {
                       color: "var(--gold)",
                       textDecoration: "none",
                       fontWeight: 500,
-                    }}
-                  >
-                    +1 (469) 939-0767
-                  </a>
-                  .
-                </p>
-              </div>
-
-              <div className="card book-card" style={{ padding: "2.5rem" }}>
-                <form
-                  onSubmit={submit}
-                  style={{ display: "grid", gap: "1rem" }}
-                >
-                  <div className="grid-2col">
-                    <input
-                      required
-                      value={form.firstName}
-                      onChange={set("firstName")}
-                      placeholder="First name"
-                      className="field"
-                    />
-                    <input
-                      required
-                      value={form.lastName}
-                      onChange={set("lastName")}
-                      placeholder="Last name"
-                      className="field"
-                    />
-                  </div>
-                  <div className="grid-2col">
-                    <input
-                      required
-                      type="email"
-                      value={form.email}
-                      onChange={set("email")}
-                      placeholder="Email address"
-                      className="field"
-                    />
-                    <input
-                      required
-                      type="tel"
-                      value={form.phone}
-                      onChange={set("phone")}
-                      placeholder="Phone number"
-                      className="field"
-                    />
-                  </div>
-
-                  <hr className="divider" style={{ margin: ".5rem 0" }} />
-
-                  <input
-                    required
-                    value={form.pickup}
-                    onChange={set("pickup")}
-                    placeholder="Pickup address"
-                    className="field"
-                  />
-                  <input
-                    required
-                    value={form.dropoff}
-                    onChange={set("dropoff")}
-                    placeholder="Drop-off address"
-                    className="field"
-                  />
-                  <input
-                    value={form.stops}
-                    onChange={set("stops")}
-                    placeholder="Additional stops (optional)"
-                    className="field"
-                  />
-
-                  <div className="grid-3col">
-                    <input
-                      required
-                      type="date"
-                      value={form.date}
-                      onChange={set("date")}
-                      className="field"
-                      aria-label="Pickup date"
-                    />
-                    <input
-                      required
-                      type="time"
-                      value={form.time}
-                      onChange={set("time")}
-                      className="field"
-                      aria-label="Pickup time"
-                    />
-                    <select
-                      value={form.returnTrip}
-                      onChange={set("returnTrip")}
-                      className="field"
-                    >
-                      <option>No return trip</option>
-                      <option>Yes — round trip</option>
-                      <option>Hourly (chauffeur stays)</option>
-                    </select>
-                  </div>
-
-                  <div className="grid-3col">
-                    <select
-                      value={form.passengers}
-                      onChange={set("passengers")}
-                      className="field"
-                    >
-                      {[1, 2, 3, 4, 5, 6, 8, 10, 14, 20, 24, 30].map((n) => (
-                        <option key={n} value={n}>
-                          {n} passenger{n > 1 ? "s" : ""}
-                        </option>
-                      ))}
-                    </select>
-                    <select
-                      value={form.vehicle}
-                      onChange={set("vehicle")}
-                      className="field"
-                    >
-                      {["Luxury SUV"].map((v) => (
-                        <option key={v}>{v}</option>
-                      ))}
-                    </select>
-                    <select
-                      value={form.occasion}
-                      onChange={set("occasion")}
-                      className="field"
-                    >
-                      {[
-                        "Airport Transfer",
-                        "Corporate",
-                        "Wedding",
-                        "Prom / Graduation",
-                        "Night Out",
-                        "Funeral",
-                        "Hourly / Other",
-                      ].map((o) => (
-                        <option key={o}>{o}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <textarea
-                    value={form.notes}
-                    onChange={set("notes")}
-                    rows="3"
-                    placeholder="Special requests — flight number, child seat, décor, beverages…"
-                    className="field"
-                    style={{ resize: "vertical" }}
-                  />
-
-                  {/* Policy accordion */}
-                  <div
-                    style={{
+                    },
+                  },
+                  "+1 (469) 939-0767",
+                ),
+                ".",
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                className: "card book-card",
+                style: {
+                  padding: "2.5rem",
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "form",
+                {
+                  onSubmit: submit,
+                  style: {
+                    display: "grid",
+                    gap: "1rem",
+                  },
+                },
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "grid-2col",
+                  },
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    value: form.firstName,
+                    onChange: set("firstName"),
+                    id: "firstName",
+                    name: "firstName",
+                    autoComplete: "given-name",
+                    placeholder: "First name",
+                    className: "field",
+                  }),
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    value: form.lastName,
+                    onChange: set("lastName"),
+                    id: "lastName",
+                    name: "lastName",
+                    autoComplete: "family-name",
+                    placeholder: "Last name",
+                    className: "field",
+                  }),
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "grid-2col",
+                  },
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    type: "email",
+                    value: form.email,
+                    onChange: set("email"),
+                    id: "email",
+                    name: "email",
+                    autoComplete: "email",
+                    placeholder: "Email address",
+                    className: "field",
+                  }),
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    type: "tel",
+                    value: form.phone,
+                    onChange: set("phone"),
+                    id: "phone",
+                    name: "phone",
+                    autoComplete: "tel",
+                    placeholder: "Phone number",
+                    className: "field",
+                  }),
+                ),
+                /*#__PURE__*/ React.createElement("hr", {
+                  className: "divider",
+                  style: {
+                    margin: ".5rem 0",
+                  },
+                }),
+                /*#__PURE__*/ React.createElement("input", {
+                  required: true,
+                  value: form.pickup,
+                  onChange: set("pickup"),
+                  id: "pickup",
+                  name: "pickup",
+                  autoComplete: "street-address",
+                  placeholder: "Pickup address",
+                  className: "field",
+                }),
+                /*#__PURE__*/ React.createElement("input", {
+                  required: true,
+                  value: form.dropoff,
+                  onChange: set("dropoff"),
+                  id: "dropoff",
+                  name: "dropoff",
+                  placeholder: "Drop-off address",
+                  className: "field",
+                }),
+                /*#__PURE__*/ React.createElement("input", {
+                  value: form.stops,
+                  onChange: set("stops"),
+                  id: "stops",
+                  name: "stops",
+                  placeholder: "Additional stops (optional)",
+                  className: "field",
+                }),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "grid-3col",
+                  },
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    type: "date",
+                    value: form.date,
+                    onChange: set("date"),
+                    id: "pickupDate",
+                    name: "pickupDate",
+                    className: "field",
+                    "aria-label": "Pickup date",
+                  }),
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    type: "time",
+                    value: form.time,
+                    onChange: set("time"),
+                    id: "pickupTime",
+                    name: "pickupTime",
+                    className: "field",
+                    "aria-label": "Pickup time",
+                  }),
+                  /*#__PURE__*/ React.createElement(
+                    "select",
+                    {
+                      id: "returnTrip",
+                      name: "returnTrip",
+                      value: form.returnTrip,
+                      onChange: set("returnTrip"),
+                      className: "field",
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "option",
+                      null,
+                      "No return trip",
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "option",
+                      null,
+                      "Yes \u2014 round trip",
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "option",
+                      null,
+                      "Hourly (chauffeur stays)",
+                    ),
+                  ),
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    className: "grid-3col",
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "select",
+                    {
+                      id: "passengers",
+                      name: "passengers",
+                      value: form.passengers,
+                      onChange: set("passengers"),
+                      className: "field",
+                    },
+                    [1, 2, 3, 4, 5, 6, 8, 10, 14, 20, 24, 30].map(function (n) {
+                      return /*#__PURE__*/ React.createElement(
+                        "option",
+                        {
+                          key: n,
+                          value: n,
+                        },
+                        n,
+                        " passenger",
+                        n > 1 ? "s" : "",
+                      );
+                    }),
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "select",
+                    {
+                      id: "vehicle",
+                      name: "vehicle",
+                      value: form.vehicle,
+                      onChange: set("vehicle"),
+                      className: "field",
+                    },
+                    ["Luxury SUV"].map(function (v) {
+                      return /*#__PURE__*/ React.createElement(
+                        "option",
+                        {
+                          key: v,
+                        },
+                        v,
+                      );
+                    }),
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "select",
+                    {
+                      id: "occasion",
+                      name: "occasion",
+                      value: form.occasion,
+                      onChange: set("occasion"),
+                      className: "field",
+                    },
+                    [
+                      "Airport Transfer",
+                      "Corporate",
+                      "Wedding",
+                      "Prom / Graduation",
+                      "Night Out",
+                      "Funeral",
+                      "Hourly / Other",
+                    ].map(function (o) {
+                      return /*#__PURE__*/ React.createElement(
+                        "option",
+                        {
+                          key: o,
+                        },
+                        o,
+                      );
+                    }),
+                  ),
+                ),
+                /*#__PURE__*/ React.createElement("textarea", {
+                  value: form.notes,
+                  onChange: set("notes"),
+                  rows: "3",
+                  placeholder:
+                    "Special requests \u2014 flight number, child seat, d\xE9cor, beverages\u2026",
+                  id: "notes",
+                  name: "notes",
+                  className: "field",
+                  style: {
+                    resize: "vertical",
+                  },
+                }),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       border: "1px solid var(--border)",
                       borderRadius: 8,
                       padding: "0 1.25rem",
                       background: "var(--cream)",
-                    }}
-                  >
-                    <details>
-                      <summary
-                        style={{ fontSize: ".8125rem", color: "var(--muted)" }}
-                      >
-                        <span>
-                          Zero Tolerance Policy — expand to read before booking
-                        </span>
-                        <svg
-                          className="chev"
-                          width="14"
-                          height="14"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                      </summary>
-                      <div>
-                        {POLICY.map((p, i) => (
-                          <div key={i} style={{ marginBottom: ".75rem" }}>
-                            <div
-                              style={{
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "details",
+                    null,
+                    /*#__PURE__*/ React.createElement(
+                      "summary",
+                      {
+                        style: {
+                          fontSize: ".8125rem",
+                          color: "var(--muted)",
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement(
+                        "span",
+                        null,
+                        "Zero Tolerance Policy \u2014 expand to read before booking",
+                      ),
+                      /*#__PURE__*/ React.createElement(
+                        "svg",
+                        {
+                          className: "chev",
+                          width: "14",
+                          height: "14",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          strokeWidth: "2",
+                        },
+                        /*#__PURE__*/ React.createElement("polyline", {
+                          points: "6 9 12 15 18 9",
+                        }),
+                      ),
+                    ),
+                    /*#__PURE__*/ React.createElement(
+                      "div",
+                      null,
+                      POLICY.map(function (p, i) {
+                        return /*#__PURE__*/ React.createElement(
+                          "div",
+                          {
+                            key: i,
+                            style: {
+                              marginBottom: ".75rem",
+                            },
+                          },
+                          /*#__PURE__*/ React.createElement(
+                            "div",
+                            {
+                              style: {
                                 fontSize: ".8125rem",
                                 color: "var(--forest)",
                                 fontWeight: 500,
                                 marginBottom: ".2rem",
-                              }}
-                            >
-                              {p.q}
-                            </div>
-                            <div
-                              style={{
+                              },
+                            },
+                            p.q,
+                          ),
+                          /*#__PURE__*/ React.createElement(
+                            "div",
+                            {
+                              style: {
                                 fontSize: ".8rem",
                                 color: "var(--muted)",
                                 lineHeight: 1.65,
-                              }}
-                            >
-                              {p.a}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </details>
-                  </div>
-
-                  <label
-                    style={{
+                              },
+                            },
+                            p.a,
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "label",
+                  {
+                    style: {
                       display: "flex",
                       alignItems: "flex-start",
                       gap: ".75rem",
@@ -3249,26 +4385,26 @@
                       color: "var(--muted)",
                       cursor: "pointer",
                       lineHeight: 1.6,
-                    }}
-                  >
-                    <input
-                      required
-                      type="checkbox"
-                      checked={form.agree}
-                      onChange={set("agree")}
-                      style={{
-                        marginTop: ".2rem",
-                        accentColor: "var(--gold)",
-                        flexShrink: 0,
-                      }}
-                    />
-                    I have read and agree to the Zero Tolerance Policy, rates,
-                    and cancellation terms.
-                  </label>
-
-                  {errMsg && (
-                    <div
-                      style={{
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement("input", {
+                    required: true,
+                    type: "checkbox",
+                    checked: form.agree,
+                    onChange: set("agree"),
+                    style: {
+                      marginTop: ".2rem",
+                      accentColor: "var(--gold)",
+                      flexShrink: 0,
+                    },
+                  }),
+                  "I have read and agree to the Zero Tolerance Policy, rates, and cancellation terms.",
+                ),
+                errMsg &&
+                  /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      style: {
                         background: "#fff5f5",
                         border: "1px solid rgba(200,50,50,0.25)",
                         borderRadius: 8,
@@ -3276,17 +4412,18 @@
                         fontSize: ".8125rem",
                         color: "#c0392b",
                         lineHeight: 1.6,
-                      }}
-                    >
-                      ⚠ {errMsg}
-                    </div>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn btn-dark"
-                    style={{
+                      },
+                    },
+                    "\u26A0 ",
+                    errMsg,
+                  ),
+                /*#__PURE__*/ React.createElement(
+                  "button",
+                  {
+                    type: "submit",
+                    disabled: loading,
+                    className: "btn btn-dark",
+                    style: {
                       width: "100%",
                       padding: "1.1rem",
                       fontSize: "1rem",
@@ -3298,204 +4435,252 @@
                       alignItems: "center",
                       justifyContent: "center",
                       gap: ".6rem",
-                    }}
-                  >
-                    {loading && (
-                      <svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        style={{
+                    },
+                  },
+                  loading &&
+                    /*#__PURE__*/ React.createElement(
+                      "svg",
+                      {
+                        width: "18",
+                        height: "18",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2.5",
+                        style: {
                           animation: "spin 0.9s linear infinite",
                           flexShrink: 0,
-                        }}
-                      >
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                      </svg>
-                    )}
-                    {loading ? "Sending…" : "Submit Reservation Request"}
-                  </button>
-                  <p
-                    style={{
+                        },
+                      },
+                      /*#__PURE__*/ React.createElement("path", {
+                        d: "M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83",
+                      }),
+                    ),
+                  loading ? "Sending…" : "Submit Reservation Request",
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "p",
+                  {
+                    style: {
                       textAlign: "center",
                       fontSize: ".75rem",
                       color: "var(--soft)",
-                    }}
-                  >
-                    A dispatcher confirms within 30 minutes · Available 24 / 7 /
-                    365
-                  </p>
-                </form>
-              </div>
-            </div>
-          </section>
+                    },
+                  },
+                  "A dispatcher confirms within 30 minutes \xB7 Available 24 / 7 / 365",
+                ),
+              ),
+            ),
+          ),
         );
       }
 
       /* ── FOOTER ── */
       function Footer() {
-        return (
-          <footer
-            style={{
+        return /*#__PURE__*/ React.createElement(
+          "footer",
+          {
+            style: {
               background: "var(--forest)",
               color: "rgba(255,255,255,0.75)",
               paddingTop: "4rem",
               paddingBottom: "2.5rem",
-            }}
-          >
-            <div className="container">
-              <div
-                style={{
+            },
+          },
+          /*#__PURE__*/ React.createElement(
+            "div",
+            {
+              className: "container",
+            },
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
                   display: "grid",
                   gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
                   gap: "2.5rem",
                   marginBottom: "3rem",
-                }}
-              >
-                {/* Brand */}
-                <div
-                  className="footer-brand"
-                  style={{ gridColumn: "span 2", minWidth: 0 }}
-                >
-                  <Logo light />
-                  <p
-                    style={{
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "div",
+                {
+                  className: "footer-brand",
+                  style: {
+                    gridColumn: "span 2",
+                    minWidth: 0,
+                  },
+                },
+                /*#__PURE__*/ React.createElement(Logo, {
+                  light: true,
+                }),
+                /*#__PURE__*/ React.createElement(
+                  "p",
+                  {
+                    style: {
                       fontSize: ".8125rem",
                       color: "rgba(255,255,255,0.5)",
                       lineHeight: 1.75,
                       maxWidth: 280,
                       marginTop: "1rem",
-                    }}
-                  >
-                    Premium chauffeured limousine service across the Dallas–Fort
-                    Worth Metroplex. Licensed · Insured · TCEQ-compliant.
-                  </p>
-                  <div
-                    style={{
+                    },
+                  },
+                  "Premium chauffeured limousine service across the Dallas\u2013Fort Worth Metroplex. Licensed \xB7 Insured \xB7 TCEQ-compliant.",
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       marginTop: "1.25rem",
                       display: "flex",
                       flexDirection: "column",
                       gap: ".3rem",
-                    }}
-                  >
-                    <a
-                      href="tel:+14699390767"
-                      style={{
+                    },
+                  },
+                  /*#__PURE__*/ React.createElement(
+                    "a",
+                    {
+                      href: "tel:+14699390767",
+                      style: {
                         fontSize: ".875rem",
                         color: "var(--gold-lt)",
                         textDecoration: "none",
                         fontWeight: 500,
-                      }}
-                    >
-                      +1 (469) 939-0767
-                    </a>
-                    <a
-                      href="mailto:transportshalom5@gmail.com"
-                      style={{
+                      },
+                    },
+                    "+1 (469) 939-0767",
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "a",
+                    {
+                      href: "mailto:transportshalom5@gmail.com",
+                      style: {
                         fontSize: ".8rem",
                         color: "rgba(255,255,255,0.45)",
                         textDecoration: "none",
-                      }}
-                    >
-                      transportshalom5@gmail.com
-                    </a>
-                    <span
-                      style={{
+                      },
+                    },
+                    "transportshalom5@gmail.com",
+                  ),
+                  /*#__PURE__*/ React.createElement(
+                    "span",
+                    {
+                      style: {
                         fontSize: ".8rem",
                         color: "rgba(255,255,255,0.35)",
-                      }}
-                    >
-                      Open 24 / 7 / 365
-                    </span>
-                  </div>
-                </div>
-
-                {/* Navigate */}
-                <div>
-                  <div
-                    style={{
+                      },
+                    },
+                    "Open 24 / 7 / 365",
+                  ),
+                ),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       fontSize: ".65rem",
                       letterSpacing: ".25em",
                       textTransform: "uppercase",
                       color: "var(--gold-lt)",
                       marginBottom: ".875rem",
                       fontWeight: 500,
-                    }}
-                  >
-                    Navigate
-                  </div>
-                  {[
-                    ["#top", "Home"],
-                    ["#services", "Services"],
-                    ["#fleet", "Fleet"],
-                    ["#rates", "Rates & Fees"],
-                    ["#service-areas", "Service Areas"],
-                    ["#zero-tolerance", "Zero Tolerance"],
-                    ["#book", "Book a Ride"],
-                  ].map(([h, l]) => (
-                    <div key={h} style={{ marginBottom: ".45rem" }}>
-                      <a
-                        href={h}
-                        style={{
+                    },
+                  },
+                  "Navigate",
+                ),
+                [
+                  ["#top", "Home"],
+                  ["#services", "Services"],
+                  ["#fleet", "Fleet"],
+                  ["#rates", "Rates & Fees"],
+                  ["#service-areas", "Service Areas"],
+                  ["#zero-tolerance", "Zero Tolerance"],
+                  ["#book", "Book a Ride"],
+                ].map(function (_ref10) {
+                  var _ref11 = _slicedToArray(_ref10, 2),
+                    h = _ref11[0],
+                    l = _ref11[1];
+                  return /*#__PURE__*/ React.createElement(
+                    "div",
+                    {
+                      key: h,
+                      style: {
+                        marginBottom: ".45rem",
+                      },
+                    },
+                    /*#__PURE__*/ React.createElement(
+                      "a",
+                      {
+                        href: h,
+                        style: {
                           fontSize: ".8125rem",
                           color: "rgba(255,255,255,0.5)",
                           textDecoration: "none",
                           transition: "color .18s",
-                        }}
-                        onMouseEnter={(e) =>
-                          (e.target.style.color = "rgba(255,255,255,0.9)")
-                        }
-                        onMouseLeave={(e) =>
-                          (e.target.style.color = "rgba(255,255,255,0.5)")
-                        }
-                      >
-                        {l}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Areas */}
-                <div>
-                  <div
-                    style={{
+                        },
+                        onMouseEnter: function onMouseEnter(e) {
+                          return (e.target.style.color =
+                            "rgba(255,255,255,0.9)");
+                        },
+                        onMouseLeave: function onMouseLeave(e) {
+                          return (e.target.style.color =
+                            "rgba(255,255,255,0.5)");
+                        },
+                      },
+                      l,
+                    ),
+                  );
+                }),
+              ),
+              /*#__PURE__*/ React.createElement(
+                "div",
+                null,
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       fontSize: ".65rem",
                       letterSpacing: ".25em",
                       textTransform: "uppercase",
                       color: "var(--gold-lt)",
                       marginBottom: ".875rem",
                       fontWeight: 500,
-                    }}
-                  >
-                    Service Areas
-                  </div>
-                  <div
-                    style={{
+                    },
+                  },
+                  "Service Areas",
+                ),
+                /*#__PURE__*/ React.createElement(
+                  "div",
+                  {
+                    style: {
                       display: "flex",
                       flexWrap: "wrap",
                       gap: ".3rem .75rem",
-                    }}
-                  >
-                    {AREAS.map((a) => (
-                      <span
-                        key={a}
-                        style={{
+                    },
+                  },
+                  AREAS.map(function (a) {
+                    return /*#__PURE__*/ React.createElement(
+                      "span",
+                      {
+                        key: a,
+                        style: {
                           fontSize: ".75rem",
                           color: "rgba(255,255,255,0.4)",
-                        }}
-                      >
-                        {a}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
+                        },
+                      },
+                      a,
+                    );
+                  }),
+                ),
+              ),
+            ),
+            /*#__PURE__*/ React.createElement(
+              "div",
+              {
+                style: {
                   borderTop: "1px solid rgba(255,255,255,0.08)",
                   paddingTop: "1.5rem",
                   display: "flex",
@@ -3504,39 +4689,46 @@
                   gap: ".5rem",
                   fontSize: ".75rem",
                   color: "rgba(255,255,255,0.3)",
-                }}
-              >
-                <span>
-                  © {new Date().getFullYear()} Shalom Enterprise Limo. All
-                  rights reserved.
-                </span>
-                <span>Dallas–Fort Worth, TX</span>
-              </div>
-            </div>
-          </footer>
+                },
+              },
+              /*#__PURE__*/ React.createElement(
+                "span",
+                null,
+                "\xA9 ",
+                new Date().getFullYear(),
+                " Shalom Enterprise Limo. All rights reserved.",
+              ),
+              /*#__PURE__*/ React.createElement(
+                "span",
+                null,
+                "Dallas\u2013Fort Worth, TX",
+              ),
+            ),
+          ),
         );
       }
 
       /* ── APP ── */
       function App() {
-        return (
-          <>
-            <Nav />
-            <Hero />
-            <PromoBanner />
-            <PromoCard />
-            <Services />
-            <Fleet />
-            <Rates />
-            <ServiceAreas />
-            <ZeroTolerance />
-            <Book />
-            <Footer />
-          </>
+        return /*#__PURE__*/ React.createElement(
+          React.Fragment,
+          null,
+          /*#__PURE__*/ React.createElement(Nav, null),
+          /*#__PURE__*/ React.createElement(Hero, null),
+          /*#__PURE__*/ React.createElement(PromoBanner, null),
+          /*#__PURE__*/ React.createElement(PromoCard, null),
+          /*#__PURE__*/ React.createElement(Services, null),
+          /*#__PURE__*/ React.createElement(Fleet, null),
+          /*#__PURE__*/ React.createElement(Rates, null),
+          /*#__PURE__*/ React.createElement(ServiceAreas, null),
+          /*#__PURE__*/ React.createElement(ZeroTolerance, null),
+          /*#__PURE__*/ React.createElement(Book, null),
+          /*#__PURE__*/ React.createElement(Footer, null),
         );
       }
-
-      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        /*#__PURE__*/ React.createElement(App, null),
+      );
     </script>
   </body>
 </html>
