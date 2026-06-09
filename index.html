@@ -23,15 +23,9 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-      // ── EMAILJS CONFIG ──────────────────────────────────────────────
-      // Replace these three values with your own from emailjs.com
-      // (Account → API Keys for the Public Key;
-      //  Email Services for the Service ID;
-      //  Email Templates for the Template ID)
       window.EMAILJS_PUBLIC_KEY = "T5TnI2xfX56JfIgaU";
       window.EMAILJS_SERVICE_ID = "service_ovc8b3d";
       window.EMAILJS_TEMPLATE_ID = "template_rironoo";
-      // ────────────────────────────────────────────────────────────────
       emailjs.init(window.EMAILJS_PUBLIC_KEY);
     </script>
 
@@ -52,7 +46,6 @@
           transform: translateX(-50%);
         }
       }
-
       .promo-ticker-wrap {
         width: 100%;
         overflow: hidden;
@@ -63,18 +56,15 @@
         position: relative;
         z-index: 10;
       }
-
       .promo-ticker-track {
         display: inline-flex;
         white-space: nowrap;
         animation: ticker-scroll 28s linear infinite;
         will-change: transform;
       }
-
       .promo-ticker-wrap:hover .promo-ticker-track {
         animation-play-state: paused;
       }
-
       .promo-ticker-item {
         display: inline-flex;
         align-items: center;
@@ -86,12 +76,10 @@
         text-transform: uppercase;
         color: var(--gold-lt);
       }
-
       .promo-ticker-item strong {
         color: #fff;
         font-weight: 700;
       }
-
       .promo-ticker-dot {
         color: var(--gold);
         opacity: 0.55;
@@ -156,7 +144,7 @@
 
       /* ── LAYOUT ── */
       .container {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
       }
@@ -202,7 +190,6 @@
         transform: translateY(-1px);
         box-shadow: 0 8px 28px rgba(27, 47, 33, 0.3);
       }
-
       .btn-gold {
         background: linear-gradient(135deg, #d4a843 0%, #b8860b 100%);
         color: #fff;
@@ -213,7 +200,6 @@
         filter: brightness(1.08);
         transform: translateY(-1px);
       }
-
       .btn-outline {
         border: 1.5px solid var(--forest);
         color: var(--forest);
@@ -224,7 +210,6 @@
         background: var(--forest);
         color: #fff;
       }
-
       .btn-outline-gold {
         border: 1.5px solid var(--gold);
         color: var(--gold);
@@ -289,8 +274,7 @@
         margin-bottom: 1.5rem;
       }
 
-      /* ── NAV ── */
-      /* ── LOGO LOCK — identical on every device ── */
+      /* ── LOGO LOCK ── */
       .nav-logo-circle {
         width: 40px !important;
         height: 40px !important;
@@ -323,7 +307,6 @@
       .nav-link:hover {
         color: #fff;
       }
-
       .nav-link-dark {
         font-size: 0.8rem;
         letter-spacing: 0.06em;
@@ -476,10 +459,12 @@
           min-height: 65svh;
         }
       }
+
       .hero-bg-img {
         position: absolute;
         inset: 0;
-        background: url("./hero.webp") center / cover no-repeat;
+        background: url("./hero.webp") center top / cover no-repeat;
+        background-attachment: scroll;
       }
       .hero-overlay {
         position: absolute;
@@ -553,7 +538,7 @@
         gap: 1.5rem;
       }
 
-      /* ── ZERO TOLERANCE ACCORDION (dark) ── */
+      /* ── ZERO TOLERANCE ACCORDION ── */
       .zt-item {
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
@@ -591,34 +576,24 @@
       }
 
       /* ── NAV BAR RESPONSIVE ── */
-      /* The nav-inner is .container inside the header — controls height + spacing */
       .nav-inner {
         height: 76px;
-        padding: 0 2rem; /* explicit to override .container default at all sizes */
-      }
-      @media (max-width: 1024px) {
-        .nav-inner {
-          padding: 0 1.5rem;
-        }
+        padding: 0 clamp(1rem, 4vw, 2.5rem);
       }
       @media (max-width: 768px) {
         .nav-inner {
           height: 66px;
-          padding: 0 1.25rem;
         }
       }
       @media (max-width: 480px) {
         .nav-inner {
           height: 62px;
-          padding: 0 1rem;
         }
       }
       @media (max-width: 375px) {
         .nav-inner {
           height: 58px;
-          padding: 0 0.875rem;
         }
-        /* Tighten hamburger button */
         .mobile-btn {
           padding: 0.38rem 0.5rem !important;
         }
@@ -626,9 +601,7 @@
       @media (max-width: 320px) {
         .nav-inner {
           height: 54px;
-          padding: 0 0.75rem;
         }
-        /* Logo stays identical — no hiding or shrinking */
       }
 
       /* ── RESPONSIVE NAV ── */
@@ -645,17 +618,14 @@
         .hero-content {
           padding: 6rem 0 3rem;
         }
-        /* Booking card better padding on tablet/mobile */
         .book-card {
           padding: 1.75rem !important;
         }
-        /* Prevent rate table from pushing layout on tablet */
         .rate-table th,
         .rate-table td {
           padding: 0.85rem 0.9rem;
           font-size: 0.85rem;
         }
-        /* Service areas map stacks above tags on mobile */
         .grid-map {
           gap: 1.75rem !important;
         }
@@ -666,7 +636,7 @@
         }
       }
 
-      /* ── NAV 769–1023px: CENTERED layout ── */
+      /* ── NAV 769–1023px ── */
       @media (min-width: 769px) and (max-width: 1023px) {
         .nav-inner {
           justify-content: center !important;
@@ -680,7 +650,7 @@
         .nav-link-dark {
           font-size: 0.66rem;
           letter-spacing: 0.035em;
-          white-space: nowrap; /* stop links from wrapping to 2 lines */
+          white-space: nowrap;
         }
         .desktop-nav .btn {
           padding: 0.5rem 1rem !important;
@@ -689,7 +659,7 @@
         }
       }
 
-      /* ── NAV 1024–1100px: compressed space-between ── */
+      /* ── NAV 1024–1100px ── */
       @media (min-width: 1024px) and (max-width: 1100px) {
         .desktop-nav {
           gap: 1rem !important;
@@ -709,13 +679,7 @@
         }
       }
 
-      /* ════════════════════════════════════════════════
-         SURFACE PRO 7
-         Landscape: ~1368px  |  Portrait: ~912px
-         Both are touch screens — keep tap targets at 44px+
-         ════════════════════════════════════════════════ */
-
-      /* Portrait mode — 769 to 960px */
+      /* ── SURFACE PRO 7 portrait ── */
       @media (min-width: 769px) and (max-width: 960px) {
         .nav-inner {
           height: 70px !important;
@@ -729,7 +693,6 @@
         .container--mid {
           padding: 0 1.5rem;
         }
-        /* Touch targets for stylus/finger use */
         .btn {
           min-height: 44px;
         }
@@ -737,7 +700,6 @@
           min-height: 44px;
           font-size: 1rem;
         }
-        /* Stat bar — all 4 in one row */
         .stat-bar {
           flex-wrap: nowrap !important;
         }
@@ -749,23 +711,18 @@
         .stat-item:last-child {
           border-right: none !important;
         }
-        /* 2-column service cards */
         .service-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
-        /* Fleet 2-col */
         .fleet-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
-        /* Keep 2-col form rows */
         .grid-2col {
           grid-template-columns: 1fr 1fr !important;
         }
-        /* 3-col form rows collapse to 2-col (avoid cramping) */
         .grid-3col {
           grid-template-columns: 1fr 1fr !important;
         }
-        /* Map side-by-side */
         .grid-map {
           grid-template-columns: 1fr 1fr !important;
         }
@@ -774,12 +731,11 @@
         }
       }
 
-      /* Landscape — 961 to 1400px covers Surface Pro landscape & common tablets */
+      /* ── Surface Pro landscape ── */
       @media (min-width: 961px) and (max-width: 1400px) {
         .nav-inner {
           height: 72px !important;
         }
-        /* Slightly wider container cap for the 1368px viewport */
         .container {
           max-width: 1200px;
         }
@@ -789,30 +745,21 @@
         .container--mid {
           max-width: 980px;
         }
-        /* Touch targets */
         .btn {
           min-height: 44px;
         }
         .field {
           min-height: 44px;
         }
-        /* 3-col service grid */
         .service-grid {
           grid-template-columns: repeat(3, 1fr) !important;
         }
-        /* Fleet 2-col */
         .fleet-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
       }
 
-      /* ════════════════════════════════════════════════
-         SURFACE DUO
-         Folded  : ~540 × 720 dp  (one screen, mobile nav)
-         Unfolded: ~1114 × 720 dp (spanning two panes)
-         ════════════════════════════════════════════════ */
-
-      /* Folded — single screen, 481–540px */
+      /* ── Surface Duo folded ── */
       @media (min-width: 481px) and (max-width: 540px) {
         .nav-inner {
           height: 64px !important;
@@ -826,15 +773,12 @@
         section {
           padding: 3.75rem 0;
         }
-        /* More horizontal room than a phone — restore 2-col form rows */
         .grid-2col {
           grid-template-columns: 1fr 1fr !important;
         }
-        /* Service grid 2-col */
         .service-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
-        /* CTAs side-by-side at 540px — enough room */
         .hero-ctas {
           flex-direction: row !important;
           align-items: stretch !important;
@@ -844,7 +788,6 @@
           flex: 1 !important;
           width: auto !important;
         }
-        /* Stat bar — all 4 in a row */
         .stat-bar {
           flex-wrap: nowrap !important;
         }
@@ -867,35 +810,27 @@
         }
       }
 
-      /* Unfolded spanning — CSS fold API (progressive enhancement) */
-      /* Modern syntax: Chrome 100+, Edge 100+ with flag */
+      /* ── Surface Duo unfolded ── */
       @media (horizontal-viewport-segments: 2) {
-        /* Nav stretches across both panes normally */
-
-        /* Hero spans both panes */
         .hero-wrap {
           grid-column: span 2;
         }
-
-        /* Sections: left pane gets content, right pane gets image/form */
         .grid-map {
-          grid-template-columns:
-            env(viewport-segment-width, 0, 0)
-            env(viewport-segment-width, 1, 0) !important;
+          grid-template-columns: env(viewport-segment-width, 0, 0) env(
+              viewport-segment-width,
+              1,
+              0
+            ) !important;
           column-gap: calc(
             env(viewport-segment-right, 0, 0) - env(viewport-segment-left, 1, 0)
           ) !important;
         }
-
-        /* Book form: label/fields left, submit CTA right */
         .book-card {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 2rem;
         }
       }
-
-      /* Legacy spanning syntax (older Chromium / Edge) */
       @media (spanning: single-fold-vertical) {
         .grid-map {
           grid-template-columns: env(fold-left) 1fr !important;
@@ -907,9 +842,7 @@
         }
       }
 
-      /* ── RESPONSIVE LAYOUTS ── */
-
-      /* Stat bar → 2 × 2 on tablet, 2 × 2 on mobile */
+      /* ── STAT BAR 2×2 on tablet/mobile ── */
       @media (max-width: 768px) {
         .stat-bar {
           flex-wrap: wrap;
@@ -928,14 +861,14 @@
         }
       }
 
-      /* Rate table — horizontal scroll on small screens */
+      /* ── RATE TABLE scroll ── */
       .rate-table-wrap {
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
       }
 
-      /* Responsive grid helpers — applied via className on React nodes */
+      /* ── GRID HELPERS ── */
       .grid-2col {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1005,7 +938,6 @@
         .map-iframe {
           height: 260px !important;
         }
-        /* Hero CTAs full-width stacked on small phones */
         .hero-ctas {
           flex-direction: column !important;
           align-items: stretch !important;
@@ -1015,15 +947,12 @@
           text-align: center !important;
           width: 100% !important;
         }
-        /* Footer brand — remove span 2 on tiny screens */
         .footer-brand {
           grid-column: span 1 !important;
         }
-        /* Zero-tolerance accordion padding tighter */
         .zt-summary {
           font-size: 0.875rem;
         }
-        /* Section headings slightly smaller */
         section h2 {
           font-size: clamp(1.9rem, 7vw, 3.25rem) !important;
         }
@@ -1032,7 +961,7 @@
         }
       }
 
-      /* ── COVERAGE AREA TAGS ── */
+      /* ── COVERAGE TAGS ── */
       .coverage-tag {
         display: inline-block;
         padding: 0.4rem 0.9rem;
@@ -1059,7 +988,6 @@
         box-shadow: 0 4px 14px rgba(184, 134, 11, 0.18);
       }
 
-      /* Iframe responsive */
       .map-iframe {
         width: 100%;
         display: block;
@@ -1067,14 +995,14 @@
         filter: grayscale(20%) contrast(1.05);
       }
 
-      /* ── iPhone safe-area (notch / home bar) ── */
+      /* ── iPhone safe-area ── */
       @supports (padding-bottom: env(safe-area-inset-bottom)) {
         footer {
           padding-bottom: calc(2.5rem + env(safe-area-inset-bottom));
         }
       }
 
-      /* ── Improve tap target sizes on mobile ── */
+      /* ── Mobile tap targets ── */
       @media (max-width: 768px) {
         .btn {
           min-height: 48px;
@@ -1084,12 +1012,11 @@
         }
         .field {
           min-height: 48px;
-          font-size: 1rem; /* prevents iOS auto-zoom on focus */
+          font-size: 1rem;
         }
         select.field {
           font-size: 1rem;
         }
-        /* Stack hero CTAs on ALL mobile (not just 480px) */
         .hero-ctas {
           flex-direction: column !important;
           align-items: stretch !important;
@@ -1102,7 +1029,7 @@
         }
       }
 
-      /* ── iPhone SE / small Android (≤ 375px) ── */
+      /* ── iPhone SE ── */
       @media (max-width: 375px) {
         .container,
         .container--narrow,
@@ -1112,72 +1039,59 @@
         section {
           padding: 3rem 0;
         }
-        /* Hero content side padding override (inline style) */
         .hero-content {
           padding-left: 1rem !important;
           padding-right: 1rem !important;
           padding-bottom: 3rem !important;
         }
-        /* Smaller stat bar numbers */
         .stat-item {
           padding: 0.85rem 0.4rem;
         }
         .stat-item .serif {
           font-size: 1.2rem !important;
         }
-        /* Tighter promo ticker */
         .promo-ticker-item {
           padding: 0.6rem 1.2rem;
           font-size: 0.78rem;
           letter-spacing: 0.12em;
         }
-        /* All section h2 headings */
         section h2 {
           font-size: clamp(1.75rem, 6.5vw, 3.25rem) !important;
         }
-        /* Book form tighter */
         .book-card {
           padding: 1rem !important;
         }
-        /* Accordion side padding override */
         .zt-item-wrap {
           padding-left: 1rem !important;
           padding-right: 1rem !important;
         }
-        /* Coverage area tags smaller */
         .coverage-tag {
           padding: 0.3rem 0.65rem;
           font-size: 0.75rem;
         }
-        /* Map shorter on SE */
         .map-iframe {
           height: 220px !important;
         }
-        /* Smaller button text */
         .btn {
           font-size: 0.8125rem;
         }
-        /* ZT section inner padding tighter */
         .zt-summary {
           font-size: 0.875rem;
           padding: 1rem 0;
         }
-        /* Footer brand single col */
         .footer-brand {
           grid-column: span 1 !important;
         }
-        /* form fields */
         .field {
           padding: 0.75rem 0.85rem;
           min-height: 44px;
         }
-        /* Hero CTA margin */
         .hero-ctas {
           margin-bottom: 2.5rem !important;
         }
       }
 
-      /* ── Very small phones (≤ 320px — iPhone SE 1st gen) ── */
+      /* ── Very small phones ── */
       @media (max-width: 320px) {
         .container,
         .container--narrow,
@@ -1219,6 +1133,32 @@
         .map-iframe {
           height: 190px !important;
         }
+      }
+
+      /* ── Field wrap (iOS date/time fix) ── */
+      .field-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .field-wrap .field-label {
+        font-size: 0.6875rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 0.55rem 0.9rem 0;
+        background: var(--cream);
+        border: 1px solid var(--border);
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+      }
+      .field-wrap .field {
+        border-radius: 0 0 6px 6px !important;
+        padding-top: 0.3rem !important;
       }
 
       /* ── HERO DESKTOP LEFT-ALIGN ── */
@@ -1377,30 +1317,29 @@
         line-height: 1.3;
       }
 
-      /* ── Labeled field wrapper (fixes invisible date/time on iOS Safari) ── */
-      .field-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
+      /* ── MOBILE HERO CONTENT: clear fixed navbar ── */
+      @media (max-width: 768px) {
+        .hero-content {
+          padding-top: 5rem !important; /* clears 66px navbar + breathing room */
+        }
       }
-      .field-wrap .field-label {
-        font-size: 0.6875rem;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        padding: 0.55rem 0.9rem 0;
-        background: var(--cream);
-        border: 1px solid var(--border);
-        border-bottom: none;
-        border-radius: 6px 6px 0 0;
-        line-height: 1;
-        pointer-events: none;
-        user-select: none;
+
+      /* ── MOBILE HERO BG: full image visible ── */
+      @media (max-width: 768px) {
+        .hero-bg-img {
+          background-size: contain;
+          background-position: center center;
+          background-color: #080c0a;
+        }
       }
-      .field-wrap .field {
-        border-radius: 0 0 6px 6px !important;
-        padding-top: 0.3rem !important;
+
+      /* ── MOBILE HERO CTA BUTTONS: smaller size ── */
+      @media (max-width: 768px) {
+        .hero-ctas .btn {
+          padding: 0.55rem 1.1rem !important;
+          font-size: 0.78rem !important;
+          min-height: 40px !important;
+        }
       }
     </style>
   </head>
@@ -1428,14 +1367,6 @@
           title: "Funeral Transportation",
           desc: "Compassionate and respectful chauffeur services providing dependable transportation for families during difficult times.",
         },
-        // {
-        //   title: "Hourly Charter",
-        //   desc: "Reserve a chauffeur by the hour for multi-stop trips, shopping, or sightseeing.",
-        // },
-        // {
-        //   title: "Funeral Services",
-        //   desc: "Compassionate, respectful transportation for families during their most difficult times.",
-        // },
       ];
 
       const FLEET = [
@@ -1444,7 +1375,7 @@
           seats: "6 seats",
           sub: "Cadillac Escalade · Lincoln Navigator",
           img: "./side2.jpg",
-          img2: "./side.jpg", // swap with interior shot e.g. "./interior.jpg"
+          img2: "./side.jpg",
         },
       ];
 
@@ -1561,7 +1492,7 @@
                 height: 40,
                 borderRadius: "50%",
                 flexShrink: 0,
-                background: "linear-gradient(145deg, #d4a843, #8a6a0a)",
+                background: "linear-gradient(145deg,#d4a843,#8a6a0a)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -1672,7 +1603,6 @@
                     {l}
                   </a>
                 ))}
-
                 <a
                   href="#book"
                   className={atTop ? "btn btn-outline-gold" : "btn btn-gold"}
@@ -1800,12 +1730,44 @@
                   gap: 10,
                   marginBottom: "1.25rem",
                 }}
-              ></div>
+              >
+                <div
+                  className="hero-eyebrow-lines"
+                  style={{
+                    width: 28,
+                    height: 1,
+                    background: "rgba(212,168,67,0.7)",
+                    flexShrink: 0,
+                  }}
+                ></div>
+                <span
+                  style={{
+                    fontSize: "clamp(.58rem,1.7vw,.68rem)",
+                    letterSpacing: ".22em",
+                    textTransform: "uppercase",
+                    color: "rgba(212,168,67,0.9)",
+                    fontWeight: 500,
+                    textAlign: "center",
+                  }}
+                >
+                  Premium Chauffeur · Dallas–Fort Worth
+                </span>
+                <div
+                  className="hero-eyebrow-lines"
+                  style={{
+                    width: 28,
+                    height: 1,
+                    background: "rgba(212,168,67,0.7)",
+                    flexShrink: 0,
+                  }}
+                ></div>
+              </div>
+
               {/* Headline */}
               <h1
                 className="serif"
                 style={{
-                  fontSize: "clamp(1.9rem, 8.5vw, 6rem)",
+                  fontSize: "clamp(1.9rem,8.5vw,6rem)",
                   fontWeight: 700,
                   lineHeight: 1.08,
                   color: "#fff",
@@ -1817,7 +1779,7 @@
                 Experience the Ultimate in
                 <br />
                 <em style={{ fontStyle: "italic", color: "#e8c97a" }}>
-                  Comfort & Luxury.
+                  Comfort &amp; Luxury.
                 </em>
               </h1>
 
@@ -1826,7 +1788,7 @@
                 style={{
                   textAlign: "center",
                   color: "rgba(255,255,255,0.72)",
-                  fontSize: "clamp(0.875rem, 2.8vw, 1.0625rem)",
+                  fontSize: "clamp(0.875rem,2.8vw,1.0625rem)",
                   maxWidth: 480,
                   margin: "0 auto 2rem",
                   lineHeight: 1.75,
@@ -1974,18 +1936,6 @@
 
       /* ── PROMO TICKER ── */
       function PromoBanner() {
-        // Origin
-        //    const items = [
-        //   "🎉 LIMITED TIME — 10% OFF YOUR FIRST RIDE",
-        //   "✦  USE CODE: FIRST10 AT CHECKOUT",
-        //   "🚘 LUXURY FLEET · PROFESSIONAL CHAUFFEURS",
-        //   "⭐  RATED #1 LIMOUSINE SERVICE IN THE AREA",
-        //   "🎉 LIMITED TIME — 10% OFF YOUR FIRST RIDE",
-        //   "✦  USE CODE: FIRST10 AT CHECKOUT",
-        //   "🚘 LUXURY FLEET · PROFESSIONAL CHAUFFEURS",
-        //   "⭐  RATED #1 LIMOUSINE SERVICE IN THE AREA",
-        // ];
-
         const items = [
           "🎉 LIMITED TIME — 10% OFF YOUR FIRST RIDE",
           "🚘 LUXURY FLEET · PROFESSIONAL CHAUFFEURS",
@@ -2022,7 +1972,7 @@
               <div
                 className="serif"
                 style={{
-                  fontSize: "clamp(1.35rem, 4vw, 1.75rem)",
+                  fontSize: "clamp(1.35rem,4vw,1.75rem)",
                   fontWeight: 600,
                   color: "var(--forest)",
                   marginBottom: ".5rem",
@@ -2159,7 +2109,6 @@
                   ))}
                 </div>
               </div>
-
               <div className="service-grid">
                 {SERVICES.map((s, i) => (
                   <div key={i} className="service-cell">
@@ -2511,7 +2460,6 @@
             style={{ background: "var(--cream2)", padding: "7rem 0" }}
           >
             <div className="container">
-              {/* Header */}
               <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
                 <div
                   style={{
@@ -2550,16 +2498,10 @@
                 <h2
                   className="serif"
                   style={{
-                    fontSize: "clamp(2.25rem, 5vw, 3.25rem)",
+                    fontSize: "clamp(2.25rem,5vw,3.25rem)",
                     fontWeight: 700,
                     color: "var(--forest)",
                     lineHeight: 1.1,
-
-                    // fontSize: "clamp(2.25rem,5vw,3.25rem)",
-                    // fontWeight: 700,
-                    // color: "#fff",
-                    // lineHeight: 1.1,
-                    // marginBottom: "1rem",
                   }}
                 >
                   Serving the entire DFW Metroplex.
@@ -2577,9 +2519,7 @@
                 </p>
               </div>
 
-              {/* Map + Areas grid */}
               <div className="grid-map">
-                {/* Google Maps embed */}
                 <div
                   style={{
                     borderRadius: 12,
@@ -2605,7 +2545,6 @@
                   ></iframe>
                 </div>
 
-                {/* Area tags */}
                 <div>
                   <div
                     style={{
@@ -2633,8 +2572,6 @@
                       </span>
                     ))}
                   </div>
-
-                  {/* Callout */}
                   <div
                     style={{
                       padding: "1.5rem",
@@ -2667,7 +2604,7 @@
                       online and we'll confirm coverage for your location.
                     </p>
                     <a
-                      href="tel:+1"
+                      href="tel:+14699390767"
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
@@ -2702,14 +2639,12 @@
       function ZeroTolerance() {
         const [openIdx, setOpenIdx] = useState(null);
         const toggle = (i) => setOpenIdx(openIdx === i ? null : i);
-
         return (
           <section
             id="zero-tolerance"
             style={{ background: "var(--cream)", padding: "7rem 0" }}
           >
             <div className="container--mid">
-              {/* Header */}
               <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
                 <div
                   style={{
@@ -2759,7 +2694,6 @@
                 </p>
               </div>
 
-              {/* Accordion */}
               <div
                 style={{
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -2843,8 +2777,6 @@
                           <polyline points="6 9 12 15 18 9" />
                         </svg>
                       </button>
-
-                      {/* Grid-row trick: animates height without knowing exact px */}
                       <div
                         style={{
                           display: "grid",
@@ -2879,7 +2811,6 @@
                 })}
               </div>
 
-              {/* Footer note */}
               <p
                 style={{
                   textAlign: "center",
@@ -2895,20 +2826,14 @@
                 To report a concern, call{" "}
                 <a
                   href="tel:+14694000777"
-                  style={{
-                    color: "var(--gold)",
-                    textDecoration: "none",
-                  }}
+                  style={{ color: "var(--gold)", textDecoration: "none" }}
                 >
                   469-400-0777
                 </a>{" "}
                 or the City of Dallas at{" "}
                 <a
                   href="tel:+12146703161"
-                  style={{
-                    color: "var(--gold)",
-                    textDecoration: "none",
-                  }}
+                  style={{ color: "var(--gold)", textDecoration: "none" }}
                 >
                   214-670-3161
                 </a>
@@ -2959,7 +2884,6 @@
           }
           setErrMsg("");
           setLoading(true);
-
           const templateParams = {
             from_name: `${form.firstName} ${form.lastName}`,
             from_email: form.email,
@@ -2975,7 +2899,6 @@
             occasion: form.occasion,
             notes: form.notes || "None",
           };
-
           try {
             await emailjs.send(
               window.EMAILJS_SERVICE_ID,
@@ -2986,8 +2909,7 @@
           } catch (err) {
             console.error("EmailJS error:", err);
             setErrMsg(
-              "We couldn't send your request right now. Please call us at " +
-                "(469) 400-0777 or email amkristian91@yahoo.com directly.",
+              "We couldn't send your request right now. Please call us at (469) 400-0777 or email transportshalom5@gmail.com directly.",
             );
           } finally {
             setLoading(false);
@@ -3042,8 +2964,8 @@
                     marginBottom: ".5rem",
                   }}
                 >
-                  Your request was opened in your email client. A dispatcher
-                  will confirm within 30 minutes — 24/7.
+                  Your request was sent. A dispatcher will confirm within 30
+                  minutes — 24/7.
                 </p>
                 <p
                   style={{
@@ -3107,7 +3029,7 @@
                       fontWeight: 500,
                     }}
                   >
-                    +1 (469) 939-0737
+                    +1 (469) 939-0767
                   </a>
                   .
                 </p>
@@ -3335,7 +3257,6 @@
                     and cancellation terms.
                   </label>
 
-                  {/* Error banner */}
                   {errMsg && (
                     <div
                       style={{
@@ -3452,7 +3373,7 @@
                     }}
                   >
                     <a
-                      href="tel:+19725551234"
+                      href="tel:+14699390767"
                       style={{
                         fontSize: ".875rem",
                         color: "var(--gold-lt)",
@@ -3460,17 +3381,17 @@
                         fontWeight: 500,
                       }}
                     >
-                      +1 (972) 555-1234
+                      +1 (469) 939-0767
                     </a>
                     <a
-                      href="mailto:reservations@shalomenterpriselimo.com"
+                      href="mailto:transportshalom5@gmail.com"
                       style={{
                         fontSize: ".8rem",
                         color: "rgba(255,255,255,0.45)",
                         textDecoration: "none",
                       }}
                     >
-                      reservations@shalomenterpriselimo.com
+                      transportshalom5@gmail.com
                     </a>
                     <span
                       style={{
