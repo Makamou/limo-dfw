@@ -21,9 +21,9 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-      window.EMAILJS_PUBLIC_KEY = "T5TnI2xfX56JfIgaU";
-      window.EMAILJS_SERVICE_ID = "service_ovc8b3d";
-      window.EMAILJS_TEMPLATE_ID = "template_rironoo";
+      window.EMAILJS_PUBLIC_KEY = "qM2vasRzsvFBh5Uhh";
+      window.EMAILJS_SERVICE_ID = "service_w1jdzws";
+      window.EMAILJS_TEMPLATE_ID = "6x24wlg";
       emailjs.init(window.EMAILJS_PUBLIC_KEY);
     </script>
 
@@ -713,13 +713,16 @@
           grid-template-columns: repeat(2, 1fr) !important;
         }
         .fleet-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(340px, 1fr)
+          ) !important;
         }
         .grid-2col {
           grid-template-columns: 1fr 1fr !important;
         }
         .grid-3col {
-          grid-template-columns: 1fr 1fr !important;
+          grid-template-columns: 1fr 1fr 1fr !important;
         }
         .grid-map {
           grid-template-columns: 1fr 1fr !important;
@@ -753,7 +756,10 @@
           grid-template-columns: repeat(3, 1fr) !important;
         }
         .fleet-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(340px, 1fr)
+          ) !important;
         }
       }
 
@@ -1349,6 +1355,38 @@
           padding: 0.55rem 1.1rem !important;
           font-size: 0.78rem !important;
           min-height: 40px !important;
+        }
+      }
+
+      /* ── PHONE LANDSCAPE: keep nav + hero symmetric (iPhone Pro Max etc.) ── */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .desktop-nav {
+          display: none !important;
+        }
+        .mobile-btn {
+          display: flex !important;
+        }
+        .nav-tagline-strip {
+          display: none !important;
+        }
+        .nav-inner {
+          height: 58px !important;
+        }
+        .hero-content,
+        .hero-content h1,
+        .hero-content p {
+          text-align: center !important;
+        }
+        .hero-content p {
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        .hero-ctas {
+          justify-content: center !important;
+        }
+        .stat-bar {
+          margin-left: auto !important;
+          margin-right: auto !important;
         }
       }
     </style>
@@ -3783,6 +3821,7 @@
                         setErrMsg("");
                         setLoading(true);
                         templateParams = {
+                          to_email: "transportshalom5@gmail.com",
                           from_name: ""
                             .concat(form.firstName, " ")
                             .concat(form.lastName),
@@ -4454,8 +4493,9 @@
               "div",
               {
                 style: {
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))",
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "space-between",
                   gap: "2.5rem",
                   marginBottom: "3rem",
                 },
@@ -4465,8 +4505,8 @@
                 {
                   className: "footer-brand",
                   style: {
-                    gridColumn: "span 2",
                     minWidth: 0,
+                    maxWidth: 340,
                   },
                 },
                 /*#__PURE__*/ React.createElement(Logo, {
@@ -4480,21 +4520,33 @@
                       color: "rgba(255,255,255,0.5)",
                       lineHeight: 1.75,
                       maxWidth: 280,
-                      marginTop: "1rem",
+                      marginTop: ".6rem",
                     },
                   },
-                  "Premium chauffeured limousine service across the Dallas\u2013Fort Worth Metroplex. Licensed \xB7 Insured \xB7 TCEQ-compliant.",
+                  "Licensed \xB7 Insured \xB7 TCEQ-compliant.",
                 ),
                 /*#__PURE__*/ React.createElement(
                   "div",
                   {
                     style: {
-                      marginTop: "1.25rem",
+                      marginTop: "0rem",
                       display: "flex",
                       flexDirection: "column",
-                      gap: ".3rem",
+                      gap: ".1rem",
                     },
                   },
+                  /*#__PURE__*/ React.createElement(
+                    "a",
+                    {
+                      href: "mailto:transportshalom5@gmail.com",
+                      style: {
+                        fontSize: ".8rem",
+                        color: "rgba(255,255,255,0.45)",
+                        textDecoration: "none",
+                      },
+                    },
+                    "transportshalom5@gmail.com",
+                  ),
                   /*#__PURE__*/ React.createElement(
                     "a",
                     {
@@ -4508,18 +4560,7 @@
                     },
                     "+1 (469) 939-0767",
                   ),
-                  /*#__PURE__*/ React.createElement(
-                    "a",
-                    {
-                      href: "mailto:transportshalom5@gmail.com",
-                      style: {
-                        fontSize: ".8rem",
-                        color: "rgba(255,255,255,0.45)",
-                        textDecoration: "none",
-                      },
-                    },
-                    "transportshalom5@gmail.com",
-                  ),
+
                   /*#__PURE__*/ React.createElement(
                     "span",
                     {
@@ -4534,68 +4575,12 @@
               ),
               /*#__PURE__*/ React.createElement(
                 "div",
-                null,
-                /*#__PURE__*/ React.createElement(
-                  "div",
-                  {
-                    style: {
-                      fontSize: ".65rem",
-                      letterSpacing: ".25em",
-                      textTransform: "uppercase",
-                      color: "var(--gold-lt)",
-                      marginBottom: ".875rem",
-                      fontWeight: 500,
-                    },
+                {
+                  style: {
+                    minWidth: 0,
+                    maxWidth: 420,
                   },
-                  "Navigate",
-                ),
-                [
-                  ["#top", "Home"],
-                  ["#services", "Services"],
-                  ["#fleet", "Fleet"],
-                  ["#rates", "Rates & Fees"],
-                  ["#service-areas", "Service Areas"],
-                  ["#zero-tolerance", "Zero Tolerance"],
-                  ["#book", "Book a Ride"],
-                ].map(function (_ref10) {
-                  var _ref11 = _slicedToArray(_ref10, 2),
-                    h = _ref11[0],
-                    l = _ref11[1];
-                  return /*#__PURE__*/ React.createElement(
-                    "div",
-                    {
-                      key: h,
-                      style: {
-                        marginBottom: ".45rem",
-                      },
-                    },
-                    /*#__PURE__*/ React.createElement(
-                      "a",
-                      {
-                        href: h,
-                        style: {
-                          fontSize: ".8125rem",
-                          color: "rgba(255,255,255,0.5)",
-                          textDecoration: "none",
-                          transition: "color .18s",
-                        },
-                        onMouseEnter: function onMouseEnter(e) {
-                          return (e.target.style.color =
-                            "rgba(255,255,255,0.9)");
-                        },
-                        onMouseLeave: function onMouseLeave(e) {
-                          return (e.target.style.color =
-                            "rgba(255,255,255,0.5)");
-                        },
-                      },
-                      l,
-                    ),
-                  );
-                }),
-              ),
-              /*#__PURE__*/ React.createElement(
-                "div",
-                null,
+                },
                 /*#__PURE__*/ React.createElement(
                   "div",
                   {
