@@ -95,6 +95,7 @@
 
       /* ── TOKENS ── */
       :root {
+        --nav-h: 76px; /* fixed nav-bar height — kept in sync with .nav-inner; hero-content padding-top reads this so it never sits under the nav */
         --cream: #f9f5ef;
         --cream2: #f2ede3;
         --white: #ffffff;
@@ -485,7 +486,6 @@
       }
       .hero-content {
         position: relative;
-        padding: 6rem 0 4rem;
         text-align: center;
       }
 
@@ -575,30 +575,30 @@
 
       /* ── NAV BAR RESPONSIVE ── */
       .nav-inner {
-        height: 76px;
+        height: var(--nav-h);
         padding: 0 clamp(1rem, 4vw, 2.5rem);
       }
       @media (max-width: 768px) {
-        .nav-inner {
-          height: 66px;
+        :root {
+          --nav-h: 66px;
         }
       }
       @media (max-width: 480px) {
-        .nav-inner {
-          height: 62px;
+        :root {
+          --nav-h: 62px;
         }
       }
       @media (max-width: 375px) {
-        .nav-inner {
-          height: 58px;
+        :root {
+          --nav-h: 58px;
         }
         .mobile-btn {
           padding: 0.38rem 0.5rem !important;
         }
       }
       @media (max-width: 320px) {
-        .nav-inner {
-          height: 54px;
+        :root {
+          --nav-h: 54px;
         }
       }
 
@@ -612,9 +612,6 @@
         }
         section {
           padding: 2.75rem 0;
-        }
-        .hero-content {
-          padding: 6rem 0 3rem;
         }
         .book-card {
           padding: 1.75rem !important;
@@ -679,8 +676,11 @@
 
       /* ── SURFACE PRO 7 portrait ── */
       @media (min-width: 769px) and (max-width: 960px) {
+        :root {
+          --nav-h: 70px;
+        }
         .nav-inner {
-          height: 70px !important;
+          height: var(--nav-h) !important;
           padding: 0 1.25rem !important;
         }
         section {
@@ -734,8 +734,11 @@
 
       /* ── Surface Pro landscape ── */
       @media (min-width: 961px) and (max-width: 1400px) {
+        :root {
+          --nav-h: 72px;
+        }
         .nav-inner {
-          height: 72px !important;
+          height: var(--nav-h) !important;
         }
         .container {
           max-width: 1200px;
@@ -765,8 +768,11 @@
 
       /* ── Surface Duo folded ── */
       @media (min-width: 481px) and (max-width: 540px) {
+        :root {
+          --nav-h: 64px;
+        }
         .nav-inner {
-          height: 64px !important;
+          height: var(--nav-h) !important;
           padding: 0 1.25rem !important;
         }
         .container,
@@ -1043,11 +1049,6 @@
         section {
           padding: 2rem 0;
         }
-        .hero-content {
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
-          padding-bottom: 3rem !important;
-        }
         .stat-item {
           padding: 0.85rem 0.4rem;
         }
@@ -1101,11 +1102,6 @@
         .container--narrow,
         .container--mid {
           padding: 0 0.75rem;
-        }
-        .hero-content {
-          padding-left: 0.75rem !important;
-          padding-right: 0.75rem !important;
-          padding-bottom: 2.5rem !important;
         }
         section {
           padding: 1.75rem 0;
@@ -1333,13 +1329,6 @@
         width: 100%;
       }
 
-      /* ── MOBILE HERO CONTENT: clear fixed navbar ── */
-      @media (max-width: 768px) {
-        .hero-content {
-          padding-top: 5rem !important; /* clears 66px navbar + breathing room */
-        }
-      }
-
       /* ── MOBILE HERO BG: full image visible ── */
       @media (max-width: 768px) {
         .hero-bg-img {
@@ -1360,6 +1349,9 @@
 
       /* ── PHONE LANDSCAPE: keep nav + hero symmetric (iPhone Pro Max etc.) ── */
       @media (max-height: 500px) and (orientation: landscape) {
+        :root {
+          --nav-h: 58px;
+        }
         .desktop-nav {
           display: none !important;
         }
@@ -1370,14 +1362,9 @@
           display: none !important;
         }
         .nav-inner {
-          height: 58px !important;
+          height: var(--nav-h) !important;
           justify-content: space-between !important;
           padding: 0 1.25rem !important;
-        }
-        .hero-content {
-          margin-top: 100px !important;
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
         }
         .hero-content,
         .hero-content h1,
@@ -1395,6 +1382,28 @@
           margin-left: auto !important;
           margin-right: auto !important;
         }
+      }
+
+      /* ── HERO CONTENT SPACING: fluid, nav-aware (single source of truth) ──
+         padding-top is always nav height + a fluid gap, so the heading can
+         never sit under the fixed nav at ANY viewport size. Side/bottom
+         padding scale smoothly with clamp() instead of jumping between
+         device-specific breakpoints. !important is intentional: this is the
+         one place hero spacing is decided, overriding the generic
+         .container gutters and the inline style on the element. */
+      .hero-content {
+        padding-top: calc(var(--nav-h) + clamp(1rem, 4vw, 2.5rem)) !important;
+        padding-right: clamp(1rem, 5vw, 2rem) !important;
+        padding-bottom: clamp(2.5rem, 6vw, 5rem) !important;
+        padding-left: clamp(1rem, 5vw, 2rem) !important;
+      }
+
+      /* ── HERO HEADING: never overflow, wrap gracefully ── */
+      .hero-content h1 {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
       }
     </style>
   </head>
@@ -2204,7 +2213,6 @@
             {
               className: "hero-content container",
               style: {
-                padding: "0 2rem 5rem",
                 position: "relative",
               },
             },
@@ -2214,7 +2222,7 @@
               {
                 className: "serif",
                 style: {
-                  fontSize: "clamp(1.9rem,8.5vw,6rem)",
+                  fontSize: "clamp(1.9rem,8.5vw,5rem)",
                   fontWeight: 700,
                   lineHeight: 1.08,
                   color: "#fff",
